@@ -1,0 +1,44 @@
+{
+    "t1": {
+        "Basin Depth": "10in.",
+        "Basin Length": "30in.",
+        "Basin Width": "17in.",
+        "Drain Connection": "3.5in.",
+        "Gauge": "16",
+        "Height": "10in.",
+        "Length": "32in.",
+        "Minimum Cabinet Size": "36in.",
+        "Nominal Length": "32in.",
+        "Nominal Width": "19in.",
+        "Product Weight": "46.7lbs.",
+        "Sink Length": "32in.",
+        "Width": "19in."
+    },
+    "t2": {
+        "Basin Rack Included": "Yes",
+        "Basket Strainer Included": "Yes",
+        "Colander Included": "No",
+        "Cutting Board Included": "No",
+        "Faucet Included": "No",
+        "Installation Hardware Included": "Yes"
+    },
+    "t3": {
+        "Basin Split": "Single Basin",
+        "Drain Placement": "Rear",
+        "Farmhouse": "No",
+        "Faucet Holes": "0",
+        "Installation Type": "Undermount",
+        "Material": "Stainless Steel",
+        "Number Of Basins": "1",
+        "Sink Shape": "Rectangular",
+        "Sound Dampening": "Yes",
+        "Stainless Steel Grade": "304",
+        "Theme": "Modern"
+    },
+    "t4": {
+        "ADA": "No",
+        "Certifications": "UPC",
+        "Collection": "Standart PRO",
+        "Manufacturer Warranty": "Limited Lifetime"
+    }
+}

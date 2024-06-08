@@ -1,0 +1,58 @@
+{
+    "color": [
+        {
+            "filter_text": "Beiges",
+            "href_link": "/flooring/carpet/beiges"
+        },
+        {
+            "filter_text": "Blues",
+            "href_link": "/flooring/carpet/blues"
+        },
+        {
+            "filter_text": "Browns",
+            "href_link": "/flooring/carpet/browns"
+        },
+        {
+            "filter_text": "Golds",
+            "href_link": "/flooring/carpet/golds"
+        },
+        {
+            "filter_text": "Grays",
+            "href_link": "/flooring/carpet/grays"
+        },
+        {
+            "filter_text": "Greens",
+            "href_link": "/flooring/carpet/greens"
+        },
+        {
+            "filter_text": "Oranges",
+            "href_link": "/flooring/carpet/oranges"
+        },
+        {
+            "filter_text": "Reds",
+            "href_link": "/flooring/carpet/reds"
+        },
+        {
+            "filter_text": "Violets",
+            "href_link": "/flooring/carpet/violets"
+        }
+    ],
+    "texture": [
+        {
+            "filter_text": "Pattern",
+            "href_link": "/flooring/carpet/pattern"
+        },
+        {
+            "filter_text": "Loop",
+            "href_link": "/flooring/carpet/loop"
+        },
+        {
+            "filter_text": "Texture",
+            "href_link": "/flooring/carpet/texture"
+        },
+        {
+            "filter_text": "Twist",
+            "href_link": "/flooring/carpet/twist"
+        }
+    ]
+}

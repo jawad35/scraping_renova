@@ -1,0 +1,109 @@
+{
+    "price": "$1,642.23",
+    "model": "K-6486-DGB",
+    "product_title": "Whitehaven 29-1/2\" Self-Trimming Farmhouse Single Basin Enameled Cast Iron Kitchen Sink",
+    "tables_data": {
+        "t1": {
+            "Basin Depth": "9in.",
+            "Basin Length": "24.75in.",
+            "Basin Width": "18.063in.",
+            "Drain Connection": "1.5in.",
+            "Faucet Centers": "0in.",
+            "Height": "9.625in.",
+            "Length": "29.5in.",
+            "Minimum Cabinet Size": "30in.",
+            "Nominal Length": "30in.",
+            "Nominal Width": "22in.",
+            "Product Weight": "122.5lbs.",
+            "Sink Length": "29.5in.",
+            "Width": "21.5625in."
+        },
+        "t2": {
+            "Basin Rack Included": "No",
+            "Basket Strainer Included": "No",
+            "Colander Included": "No",
+            "Cutting Board Included": "No",
+            "Drainboard": "No",
+            "Faucet Included": "No",
+            "Soap Dispenser Included": "No"
+        },
+        "t3": {
+            "Apron Front": "Yes",
+            "Basin Split": "Single Basin",
+            "Corner Sink": "No",
+            "Drain Placement": "Right",
+            "Farmhouse": "Yes",
+            "Faucet Holes": "0",
+            "Installation Type": "Farmhouse, Undermount",
+            "Material": "Cast Iron",
+            "Number Of Basins": "1",
+            "Self Trimming": "Yes",
+            "Sink Shape": "Rectangular",
+            "Sound Dampening": "Yes",
+            "Theme": "Traditional",
+            "Workstation Sink": "No"
+        },
+        "t4": {
+            "ADA": "No",
+            "Approved for Commercial Use": "Yes",
+            "ASME Code": "A112.19.1",
+            "Certifications": "ASME, CSA",
+            "Collection": "Whitehaven",
+            "Commercial Warranty": "1 Year Limited",
+            "Country Of Origin": "USA",
+            "CSA Code": "B45.2",
+            "Made in America": "Yes",
+            "Manufacturer Warranty": "Limited Lifetime"
+        }
+    },
+    "variants": [
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_6.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_7.jpg",
+            "color_name": "#ded6cc"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_8.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_9.jpg",
+            "color_name": "#EFDBBC"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_10.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_11.jpg",
+            "color_name": "#f8f9fa"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_12.jpg",
+            "color_name": "#87cce6"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_13.jpg",
+            "color_name": "#ffffff"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_14.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_15.jpg",
+            "color_name": "#5D5956"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_16.jpg",
+            "color_name": "#a67f5b"
+        },
+        {
+            "img": "products/build-products/K-6486-DGB/variant/variant_image_17.jpg",
+            "color_name": "#ffffff"
+        }
+    ]
+}

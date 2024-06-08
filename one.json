@@ -1,0 +1,1173 @@
+[
+    {
+        "inventoryType": "Carpet",
+        "inventorySubType": "CARPET",
+        "sellingStyleNumber": "E9965",
+        "sellingStyleName": "ATTAINABLE",
+        "inventoryStyleNumber": "MC738",
+        "sellingCompany": "65",
+        "sellingCompanyName": null,
+        "sellingCompanyGroup": "Shaw Floors",
+        "productType": "Broadloom",
+        "productTypeDesc": "Broadloom",
+        "productFormDesc": "Broadloom",
+        "originalActivationDate": "2018-11-14T11:36:26",
+        "collection": "Simply The Best",
+        "construction": "Texture",
+        "fiber": "100% PET Polyester",
+        "dyeMethod": "Continuous Dyed",
+        "compDyeMethod": null,
+        "colorGuard": null,
+        "primaryBacking": "Polypropylene",
+        "secondaryBacking": "Classicbac",
+        "protectiveTreatments": "",
+        "gsaApprovedProduct": null,
+        "isHexagon": false,
+        "isWovenProduct": false,
+        "installationMethods": null,
+        "recommendedInstallationMethods": null,
+        "recommendedInstallationMethodsInfo": null,
+        "installationComments": null,
+        "coordinatingProducts": null,
+        "recommendedProducts": null,
+        "countryOfOrigin": "USA",
+        "productSize": {
+            "width": {
+                "imperial": {
+                    "displayValue": "12 ft",
+                    "originalValue": 12.0,
+                    "formattedValue": 12.0,
+                    "uom": "ft"
+                },
+                "metric": {
+                    "displayValue": "3.66 m",
+                    "originalValue": 3.6576,
+                    "formattedValue": 3.66,
+                    "uom": "m"
+                }
+            },
+            "length": null
+        },
+        "marketingSize": null,
+        "availableRugSizes": null,
+        "gauge": {
+            "imperial": {
+                "displayValue": "5/32 in",
+                "originalValue": 0.15625,
+                "formattedValue": 0.2,
+                "fractionValue": "5/32",
+                "uom": "in"
+            },
+            "metric": {
+                "displayValue": "25.2 per 10 cm",
+                "originalValue": 25.19685039370078740157480315,
+                "formattedValue": 25.2,
+                "uom": "per 10 cm"
+            }
+        },
+        "stitches": {
+            "imperial": {
+                "displayValue": "10.8 per in",
+                "originalValue": 10.833333333333333333333333333,
+                "formattedValue": 10.8,
+                "uom": "per in"
+            },
+            "metric": {
+                "displayValue": "43 per 10 cm",
+                "originalValue": 42.650918635170603674540682413,
+                "formattedValue": 43.0,
+                "uom": "per 10 cm"
+            }
+        },
+        "pileThickness": {
+            "imperial": {
+                "displayValue": "0.53 in",
+                "originalValue": 0.53,
+                "formattedValue": 0.53,
+                "uom": "in"
+            },
+            "metric": {
+                "displayValue": "13.46 mm",
+                "originalValue": 13.462,
+                "formattedValue": 13.46,
+                "uom": "mm"
+            }
+        },
+        "averageDensity": {
+            "imperial": {
+                "displayValue": "2649 oz/yd³",
+                "originalValue": 2649.0,
+                "formattedValue": 2649.0,
+                "uom": "oz/yd³"
+            },
+            "metric": {
+                "displayValue": "0.098 g/cm³",
+                "originalValue": 0.098013,
+                "formattedValue": 0.098,
+                "uom": "g/cm³"
+            }
+        },
+        "pileDensity": null,
+        "totalThickness": null,
+        "tuftedWeight": {
+            "imperial": {
+                "displayValue": "39 oz/yd²",
+                "originalValue": 39.0,
+                "formattedValue": 39.0,
+                "uom": "oz/yd²"
+            },
+            "metric": {
+                "displayValue": "1322.3 g/m²",
+                "originalValue": 1322.324250,
+                "formattedValue": 1322.3,
+                "uom": "g/m²"
+            }
+        },
+        "tuftedFaceWeight": {
+            "imperial": {
+                "displayValue": "40 oz/yd²",
+                "originalValue": 40.00,
+                "formattedValue": 40.00,
+                "uom": "oz/yd²"
+            },
+            "metric": {
+                "displayValue": "1356.23 g/m²",
+                "originalValue": 1356.2300000,
+                "formattedValue": 1356.23,
+                "uom": "g/m²"
+            }
+        },
+        "totalWeight": {
+            "imperial": {
+                "displayValue": "74 oz/yd²",
+                "originalValue": 73.60,
+                "formattedValue": 74.0,
+                "uom": "oz/yd²"
+            },
+            "metric": {
+                "displayValue": "2495.5 g/m²",
+                "originalValue": 2495.4632000,
+                "formattedValue": 2495.5,
+                "uom": "g/m²"
+            }
+        },
+        "pileWeight": null,
+        "testResults": {
+            "radiantPanel": null,
+            "nbsSmoke": "Passes",
+            "electrostaticPropensity": null,
+            "criGreenlabelPlus": "GLP9984 ",
+            "parRating": "3.00",
+            "antimicrobialAssesment": null,
+            "pillTest": "Pass",
+            "twistInformation": "5.0",
+            "tarrClassification": null,
+            "coefficientOfFriction": 0.00,
+            "coefficientOfFrictionInfo": {
+                "value": 0.00,
+                "description": null
+            },
+            "typeStaticControl": null,
+            "useClassification": null,
+            "luxuryClass": null,
+            "dimensionalStability": null,
+            "impactSoundInsulation": null,
+            "soundAbsorptionClassification": null,
+            "thermalResistance": null,
+            "drySlipResistance": null,
+            "colorFastnessToLight": null,
+            "flammability": null,
+            "castorChair": null,
+            "contractDurability": 0.00,
+            "pillTestInfo": {
+                "displayValue": "Pass",
+                "documentLink": null
+            },
+            "radiantPanelInfo": null,
+            "nbsSmokeInfo": {
+                "displayValue": "Passes",
+                "documentLink": null
+            },
+            "electrostaticPropensityInfo": null,
+            "tarrClassificationInfo": null,
+            "castorChairInfo": null,
+            "colorFastnessToLightInfo": null,
+            "dimensionalStabilityInfo": null,
+            "drySlipResistanceInfo": null,
+            "flammabilityInfo": null,
+            "impactSoundInsulationInfo": null,
+            "soundAbsorptionClassificationInfo": null,
+            "thermalResistanceInfo": null,
+            "useClassificationInfo": null,
+            "effectivePileMassInfo": null
+        },
+        "warranties": [
+            "Shaw 15 Year Warranty"
+        ],
+        "patternRepeat": null,
+        "productTransparency": null,
+        "diversityEquityInclusionStatement": null,
+        "contributionCredits": null,
+        "attributes": null,
+        "environmentalAdditionalStatement": null,
+        "isoStatement": null,
+        "criLogo": null,
+        "isoLogo": null,
+        "c2CLogo": null,
+        "iso9001Logo": null,
+        "declareLogo": null,
+        "epdLogo": null,
+        "hpdLogo": null,
+        "pvcFree": null,
+        "ceLogo": null,
+        "combinedWarrantyLink": null,
+        "showStainMasterLogo": false,
+        "showStainMasterPetProtectLogo": false,
+        "showDgalnLogo": false,
+        "piecesPerCarton": null,
+        "boxesPerPallet": null,
+        "areaPerCarton": null,
+        "isGsaApproved": false,
+        "totalRecycledContent": null,
+        "recycledContentInfo": null,
+        "isBrookdaleLabel": false,
+        "contactInformation": null,
+        "displayColorsSection": false,
+        "marketingDescription": "Sure to welcome you home, Attainable features a tonal texture with a quiet contrast and a classic solid that evokes a sense of warmth and comfort.",
+        "labelData": null,
+        "mergableDyelots": null,
+        "overrideRoomSceneDisplayName": null,
+        "isFacetTile": false,
+        "designInspirationImageUrl": null,
+        "backRoomScene": null,
+        "edgeType": null,
+        "installationLocation": null,
+        "shape": null,
+        "isPrintBase": false,
+        "isColorPoint": false,
+        "patternType": null,
+        "patternSize": null,
+        "activeRegions": null,
+        "priceRange": null,
+        "specialFeatures": null,
+        "productCode": {
+            "code": "10",
+            "description": "RESIDENTIAL - UNDER $8.00"
+        },
+        "serviceCode": null,
+        "fhaData": {
+            "certificationNumber": "53290",
+            "certificationDocumentLink": "https://pdmsview.shawinc.com/viewer/test-result/3f99a208-4090-4a7a-9b91-e43928dd7ee6",
+            "type": "I",
+            "class": "1&2",
+            "texture": "B"
+        },
+        "recyclability": null,
+        "materialsContent": null,
+        "recycledContent": null,
+        "kenticoCloudData": null,
+        "suggestedAdhesives": null,
+        "moistureSolutions": null,
+        "cushions": null,
+        "seamSealers": null,
+        "localizedLabels": null,
+        "displayEmeaVersion": false,
+        "nspData": {
+            "isNsp": false,
+            "nspType": "",
+            "nspCode": "",
+            "nspParentProduct": ""
+        },
+        "isPlatinum": false,
+        "bimInfo": null,
+        "isBrandStandardStyle": false,
+        "fiberContent": [
+            {
+                "fiberPercentage": 100.0,
+                "fiberDescription": "PET"
+            }
+        ],
+        "carbonData": null,
+        "deconstructedDisclaimer": null,
+        "selectColors": false,
+        "fiberSpecificationLink": null,
+        "secondaryBackingSpecificationLink": null,
+        "airQuality": null,
+        "isRoomsOnlyWarranty": false,
+        "isPrimarySellingStyle": true,
+        "endofLifeOption": null,
+        "pdmsLink": "https://pdmsview.shawinc.com/spec-viewer/?key=VCgoJyQ%2bXFImIik%3d&region=EN-US",
+        "sustainabilityReportCardLink": null,
+        "brandSiteLink": "https://shawfloors.com/flooring/carpet/details/attainable-E9965/blizzard",
+        "termsOfUse": [],
+        "inventoryStyleName": "ATTAINABLE TONAL",
+        "brandGroup": "ShawFloors",
+        "division": "Residential",
+        "colors": [
+            {
+                "colorNumber": "100S",
+                "inventoryColorNumber": "00100",
+                "colorName": "Blizzard",
+                "imagePath": "https://shawfloors.widen.net/content/0uy3geda39/jpeg/MC737_00100.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "101S",
+                "inventoryColorNumber": "00101",
+                "colorName": "Pebble Path",
+                "imagePath": "https://shawfloors.widen.net/content/1htklbdwdr/jpeg/MC737_00101.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "120T",
+                "inventoryColorNumber": "00120",
+                "colorName": "Soft Fleece",
+                "imagePath": "https://shawfloors.widen.net/content/oeyeckkwet/jpeg/MC738_00120.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#968E86",
+                    "rgb": {
+                        "r": 150,
+                        "g": 142,
+                        "b": 134
+                    },
+                    "cie": {
+                        "l": 59.54624938964844,
+                        "a": 1.9943714141845703,
+                        "b": 5.395913124084473
+                    },
+                    "hsl": {
+                        "h": 30.0,
+                        "s": 0.07079646736383438,
+                        "l": 0.5568627715110779
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/3hpgcf1kar/jpeg/MC738_00120.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/hj57ttvnt9/jpeg/MC738_00120.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/oeyeckkwet/jpeg/MC738_00120.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/upwjdupfjo/jpeg/MC738_00120.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "121T",
+                "inventoryColorNumber": "00121",
+                "colorName": "Desert Light",
+                "imagePath": "https://shawfloors.widen.net/content/ajh0snignq/jpeg/MC738_00121.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#A0988C",
+                    "rgb": {
+                        "r": 160,
+                        "g": 152,
+                        "b": 140
+                    },
+                    "cie": {
+                        "l": 63.27722930908203,
+                        "a": 1.451343297958374,
+                        "b": 7.443332672119141
+                    },
+                    "hsl": {
+                        "h": 36.0,
+                        "s": 0.0952380895614624,
+                        "l": 0.5882353186607361
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/4nmyjcziui/jpeg/MC738_00121.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/ajh0snignq/jpeg/MC738_00121.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/rnf96dzags/jpeg/MC738_00121.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/zy7dvag5ui/jpeg/MC738_00121.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "122T",
+                "inventoryColorNumber": "00122",
+                "colorName": "Clay",
+                "imagePath": "https://shawfloors.widen.net/content/ihio3m1ke8/jpeg/MC738_00122.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#9C9B8F",
+                    "rgb": {
+                        "r": 156,
+                        "g": 155,
+                        "b": 143
+                    },
+                    "cie": {
+                        "l": 63.80298614501953,
+                        "a": -1.267850399017334,
+                        "b": 6.453204154968262
+                    },
+                    "hsl": {
+                        "h": 55.38461685180664,
+                        "s": 0.061611369252204895,
+                        "l": 0.5862745046615601
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/65fu9hr5qa/jpeg/MC738_00122.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/gistpy0jct/jpeg/MC738_00122.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/ihio3m1ke8/jpeg/MC738_00122.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/ohip1epcbg/jpeg/MC738_00122.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.25 x 5.25 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/uk4nvbsc01/jpeg/MC738_00122.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "123T",
+                "inventoryColorNumber": "00123",
+                "colorName": "Winter Dunes",
+                "imagePath": "https://shawfloors.widen.net/content/kcsotny0q5/jpeg/MC738_00123.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [
+                    "https://shawfloors.widen.net/content/mo6fi6ikb0/jpeg/MC738_00123.jpg?w=1000"
+                ],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#9D9988",
+                    "rgb": {
+                        "r": 157,
+                        "g": 153,
+                        "b": 136
+                    },
+                    "cie": {
+                        "l": 63.20244598388672,
+                        "a": -0.7426440715789795,
+                        "b": 9.522497177124023
+                    },
+                    "hsl": {
+                        "h": 48.57143020629883,
+                        "s": 0.09677419066429138,
+                        "l": 0.574509859085083
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/2mr3hsmxtb/jpeg/MC738_00123.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/a88uoa8gtc/jpeg/MC738_00123.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/kcsotny0q5/jpeg/MC738_00123.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/onp4ej7jwg/jpeg/MC738_00123.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "400S",
+                "inventoryColorNumber": "00400",
+                "colorName": "Faded Indigo",
+                "imagePath": "https://shawfloors.widen.net/content/dmktv1vyql/jpeg/MC737_00400.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "500S",
+                "inventoryColorNumber": "00500",
+                "colorName": "Platinum",
+                "imagePath": "https://shawfloors.widen.net/content/1tt10ermxr/jpeg/MC737_00500.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [
+                    "https://shawfloors.widen.net/content/7alcn2efk4/jpeg/MC737_00500.jpg?w=1000"
+                ],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "501S",
+                "inventoryColorNumber": "00501",
+                "colorName": "Slate",
+                "imagePath": "https://shawfloors.widen.net/content/05sjxmuic8/jpeg/MC737_00501.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "520T",
+                "inventoryColorNumber": "00520",
+                "colorName": "Sterling",
+                "imagePath": "https://shawfloors.widen.net/content/8fjnezioep/jpeg/MC738_00520.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [
+                    "https://shawfloors.widen.net/content/kn20rozoff/jpeg/MC737_00520.jpg?w=1000",
+                    "https://shawfloors.widen.net/content/kn20rozoff/jpeg/MC738_00520.jpg?w=1000"
+                ],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#979A94",
+                    "rgb": {
+                        "r": 151,
+                        "g": 154,
+                        "b": 148
+                    },
+                    "cie": {
+                        "l": 63.21571350097656,
+                        "a": -1.9814074039459229,
+                        "b": 2.7605175971984863
+                    },
+                    "hsl": {
+                        "h": 90.0,
+                        "s": 0.02884615585207939,
+                        "l": 0.5921568870544434
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/4fy30p4dlr/jpeg/MC738_00520.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/8fjnezioep/jpeg/MC738_00520.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/hmbnhwipxt/jpeg/MC738_00520.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/l34cnnogul/jpeg/MC738_00520.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.25 x 5.25 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/oha0t70116/jpeg/MC738_00520.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "521T",
+                "inventoryColorNumber": "00521",
+                "colorName": "Arctic Shadow",
+                "imagePath": "https://shawfloors.widen.net/content/av0zkrmeuu/jpeg/MC738_00521.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#81847E",
+                    "rgb": {
+                        "r": 129,
+                        "g": 132,
+                        "b": 126
+                    },
+                    "cie": {
+                        "l": 54.75212097167969,
+                        "a": -2.0369887351989746,
+                        "b": 2.840304374694824
+                    },
+                    "hsl": {
+                        "h": 89.99995422363281,
+                        "s": 0.02380955033004284,
+                        "l": 0.5058823823928833
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/3koxu3rq8r/jpeg/MC738_00521.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/av0zkrmeuu/jpeg/MC738_00521.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/mlgybuexke/jpeg/MC738_00521.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.25 x 5.25 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/peo1ozdmy3/jpeg/MC738_00521.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/uolswcrczm/jpeg/MC738_00521.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "522T",
+                "inventoryColorNumber": "00522",
+                "colorName": "Hearthstone",
+                "imagePath": "https://shawfloors.widen.net/content/9nnodfdgk0/jpeg/MC738_00522.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#69706F",
+                    "rgb": {
+                        "r": 105,
+                        "g": 112,
+                        "b": 111
+                    },
+                    "cie": {
+                        "l": 46.608009338378906,
+                        "a": -2.91520357131958,
+                        "b": -0.4104495048522949
+                    },
+                    "hsl": {
+                        "h": 171.42857360839844,
+                        "s": 0.032258063554763794,
+                        "l": 0.42549020051956177
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/33amu6uz62/jpeg/MC738_00522.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/9nnodfdgk0/jpeg/MC738_00522.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/fmzhcogptv/jpeg/MC738_00522.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/op1xtlc8nj/jpeg/MC738_00522.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.25 x 5.25 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/os0jubdimb/jpeg/MC738_00522.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "700S",
+                "inventoryColorNumber": "00700",
+                "colorName": "Smooth Taupe",
+                "imagePath": "https://shawfloors.widen.net/content/g5edvjwd6l/jpeg/MC737_00700.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [
+                    "https://shawfloors.widen.net/content/xkbzo16emt/jpeg/MC737_00700.jpg?w=1000",
+                    "https://shawfloors.widen.net/content/kic3k1ddpz/jpeg/MC738_00700.jpg?w=1000"
+                ],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "701S",
+                "inventoryColorNumber": "00701",
+                "colorName": "Cork",
+                "imagePath": "https://shawfloors.widen.net/content/l0o8gjyooa/jpeg/MC737_00701.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "702S",
+                "inventoryColorNumber": "00702",
+                "colorName": "Urban Loft",
+                "imagePath": "https://shawfloors.widen.net/content/gsvjfmkzmp/jpeg/MC737_00702.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": null,
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [],
+                "belongsToInventory": false,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "720T",
+                "inventoryColorNumber": "00720",
+                "colorName": "Grecian Tan",
+                "imagePath": "https://shawfloors.widen.net/content/hm2zrxfnmi/jpeg/MC738_00720.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#958D78",
+                    "rgb": {
+                        "r": 149,
+                        "g": 141,
+                        "b": 120
+                    },
+                    "cie": {
+                        "l": 58.90040588378906,
+                        "a": 0.383913516998291,
+                        "b": 12.379968643188477
+                    },
+                    "hsl": {
+                        "h": 43.448280334472656,
+                        "s": 0.12033197283744812,
+                        "l": 0.5274509787559509
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/4vkneylvsp/jpeg/MC738_00720.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.25 x 5.25 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/6cos6ikoqt/jpeg/MC738_00720.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/dqwz0piibl/jpeg/MC738_00720.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/hm2zrxfnmi/jpeg/MC738_00720.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/hytwpo33cn/jpeg/MC738_00720.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "721T",
+                "inventoryColorNumber": "00721",
+                "colorName": "Cedar Ridge",
+                "imagePath": "https://shawfloors.widen.net/content/gvoerecx6j/jpeg/MC738_00721.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#746E68",
+                    "rgb": {
+                        "r": 116,
+                        "g": 110,
+                        "b": 104
+                    },
+                    "cie": {
+                        "l": 46.847164154052734,
+                        "a": 1.561284065246582,
+                        "b": 4.235589504241943
+                    },
+                    "hsl": {
+                        "h": 30.0,
+                        "s": 0.05454545095562935,
+                        "l": 0.4313725531101227
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/gvoerecx6j/jpeg/MC738_00721.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/jlepbnm29q/jpeg/MC738_00721.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/qpv3zyhvlv/jpeg/MC738_00721.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/tkzoqustg2/jpeg/MC738_00721.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "4.17 x 4.17 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            },
+            {
+                "colorNumber": "722T",
+                "inventoryColorNumber": "00722",
+                "colorName": "Fox Hollow",
+                "imagePath": "https://shawfloors.widen.net/content/jzk4uhfiro/jpeg/MC738_00722.jpg?w=500",
+                "colorFamily": null,
+                "colorFamilies": null,
+                "roomScenes": [],
+                "samplesInfo": [],
+                "dominantColorSpace": {
+                    "hex": "#746C5A",
+                    "rgb": {
+                        "r": 116,
+                        "g": 108,
+                        "b": 90
+                    },
+                    "cie": {
+                        "l": 45.98290252685547,
+                        "a": 0.8633136749267578,
+                        "b": 11.30678653717041
+                    },
+                    "hsl": {
+                        "h": 41.5384635925293,
+                        "s": 0.12621358036994934,
+                        "l": 0.40392157435417175
+                    }
+                },
+                "isTopColor": false,
+                "serviceLevel": "SELECT",
+                "weldRods": null,
+                "imagesInfo": [
+                    {
+                        "url": "https://shawfloors.widen.net/content/jzk4uhfiro/jpeg/MC738_00722.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/lgx1pnx2tr/jpeg/MC738_00722.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.5 x 5.5 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/osvaxph98v/jpeg/MC738_00722.jpg?w=500",
+                        "type": "Tileable",
+                        "isInteriorMain": false,
+                        "cutlineSize": "15 x 15 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/v1garfsvax/jpeg/MC738_00722.jpg?w=500",
+                        "type": "Main",
+                        "isInteriorMain": false,
+                        "cutlineSize": "36 x 36 inches"
+                    },
+                    {
+                        "url": "https://shawfloors.widen.net/content/vv94wtzldr/jpeg/MC738_00722.jpg?w=500",
+                        "type": "Swatch",
+                        "isInteriorMain": false,
+                        "cutlineSize": "5.25 x 5.25 inches"
+                    }
+                ],
+                "belongsToInventory": true,
+                "colorServiceCode": {
+                    "code": null,
+                    "description": null
+                }
+            }
+        ],
+        "roomScene": {
+            "colorNumber": "700S",
+            "inventoryColorNumber": "00700",
+            "colorName": "Smooth Taupe",
+            "imagePath": "https://shawfloors.widen.net/content/xkbzo16emt/jpeg/MC737_00700.jpg?w=1000",
+            "colorFamily": null,
+            "colorFamilies": null,
+            "roomScenes": null,
+            "samplesInfo": null,
+            "dominantColorSpace": null,
+            "isTopColor": false,
+            "weldRods": null,
+            "imagesInfo": null,
+            "belongsToInventory": false,
+            "colorServiceCode": null
+        },
+        "warrantyLinks": [],
+        "installationLinks": null,
+        "maintenanceLinks": [
+            {
+                "name": "Carpet Care & Maintenance Guide",
+                "link": "https://pdmsview.shawinc.com/viewer/doc/1819"
+            }
+        ],
+        "collectionCode": {
+            "code": "YE",
+            "description": "SIMPLY THE BEST"
+        },
+        "specStatus": "Active",
+        "region": "EN-US",
+        "localizationRegions": [
+            "EN-US"
+        ],
+        "runningLine": "No",
+        "customerReferenceNumbers": [
+            "102"
+        ],
+        "parentPattern": null
+    }
+]

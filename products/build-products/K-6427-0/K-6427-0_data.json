@@ -1,0 +1,118 @@
+{
+    "price": "$1,328.40",
+    "model": "K-6427-0",
+    "product_title": "Whitehaven 35-11/16\" Self-Trimming Farmhouse Double Basin Apron Front Enameled Cast Iron Kitchen Sink with Smart Divide Basin",
+    "tables_data": {
+        "t1": {
+            "Basin Depth": "9in.",
+            "Basin Depth (Left)": "9in.",
+            "Basin Depth (Right)": "9in.",
+            "Basin Length (Left)": "18.8125in.",
+            "Basin Length (Right)": "10.3125in.",
+            "Basin Width (Left)": "18.063in.",
+            "Basin Width (Right)": "18.063in.",
+            "Drain Connection": "1.5in.",
+            "Height": "9.8125in.",
+            "Length": "35.6875in.",
+            "Minimum Cabinet Size": "36in.",
+            "Nominal Length": "36in.",
+            "Nominal Width": "22in.",
+            "Product Weight": "155.0lbs.",
+            "Sink Length": "35.688in.",
+            "Width": "21.5625in."
+        },
+        "t2": {
+            "Basin Rack Included": "No",
+            "Basket Strainer Included": "No",
+            "Colander Included": "No",
+            "Cutting Board Included": "No",
+            "Drainboard": "No",
+            "Faucet Included": "No",
+            "Installation Hardware Included": "Yes",
+            "Soap Dispenser Included": "No"
+        },
+        "t3": {
+            "Apron Front": "Yes",
+            "Basin Split": "60/40",
+            "Corner Sink": "No",
+            "Drain Placement": "Center, Right",
+            "Farmhouse": "Yes",
+            "Faucet Holes": "0",
+            "Installation Type": "Farmhouse, Undermount",
+            "Material": "Cast Iron",
+            "Number Of Basins": "2",
+            "Overflow": "No",
+            "Self Trimming": "Yes",
+            "Sink Shape": "Rectangular",
+            "Sound Dampening": "Yes",
+            "Theme": "Traditional",
+            "Undercoating": "No",
+            "Workstation Sink": "No"
+        },
+        "t4": {
+            "Kohler Technologies": "Smart Divide"
+        },
+        "t5": {
+            "ADA": "No",
+            "Approved for Commercial Use": "Yes",
+            "ASME Code": "A112.19.1",
+            "Certifications": "ASME, CSA",
+            "Collection": "Smart Divide, Whitehaven",
+            "Commercial Warranty": "1 Year Limited",
+            "Country Of Origin": "USA",
+            "CSA Code": "B45.2",
+            "Made in America": "Yes",
+            "Manufacturer Warranty": "Limited Lifetime"
+        }
+    },
+    "variants": [
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_6.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_7.jpg",
+            "color_name": "#ded6cc"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_8.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_9.jpg",
+            "color_name": "#EFDBBC"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_10.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_11.jpg",
+            "color_name": "#f8f9fa"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_12.jpg",
+            "color_name": "#87cce6"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_13.jpg",
+            "color_name": "#ffffff"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_14.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_15.jpg",
+            "color_name": "#5D5956"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_16.jpg",
+            "color_name": "#a67f5b"
+        },
+        {
+            "img": "products/build-products/K-6427-0/variant/variant_image_17.jpg",
+            "color_name": "#ffffff"
+        }
+    ]
+}

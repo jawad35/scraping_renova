@@ -1,0 +1,171 @@
+{
+    "price": "$94.16",
+    "model": "FDXMHMB",
+    "product_title": "Metro - 1\" x 1\" Hexagon Geometric Floor and Wall Mosaic Tile - Matte Tile Visual - Sold by Carton (8.6 SF/Carton)",
+    "tables_data": {
+        "t1": {
+            "Length": "11.88in.",
+            "Pieces Per Carton": "10",
+            "Sheet Length": "11.88in.",
+            "Sheet Size (Square Feet)": "0.86sq. ft.",
+            "Sheet Width": "10.25in.",
+            "Square Foot Per Carton": "8.6sq. ft.",
+            "Thickness": "0.24in.",
+            "Tile Size": "1\" x 1\"",
+            "Width": "10.25in."
+        },
+        "t2": {
+            "Appearance": "Tile",
+            "Edge Type": "Pressed",
+            "Gloss": "Low",
+            "Installation Location": "Backsplashes, Fireplaces, Floors, Outdoor, Shower Floor, Shower Walls, Walls",
+            "Installation Type": "Thin-Set",
+            "Material": "Porcelain",
+            "Mohs Hardness Scale": "5",
+            "Packaging Method": "Carton",
+            "Radiant Heating Approved": "Yes",
+            "Surface Type": "Matte",
+            "Tile Pattern": "Geometric",
+            "Tile Shape": "Hexagon",
+            "Type of Tile": "Mosaic Tile"
+        },
+        "t3": {
+            "Approved for Commercial Use": "Yes",
+            "Collection": "Metro",
+            "Country Of Origin": "Thailand",
+            "Outdoor Approved": "Yes"
+        }
+    },
+    "variants": [
+        {
+            "img": "products/tile/FDXMHMB/variant/variant_image_6_#000000.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_6_#F0E9DE.jpg",
+            "color_name": "#F0E9DE"
+        },
+        {
+            "img": "products/tile/NSTERHI2X10G/variant/variant_image_6_#f2f0e4.jpg",
+            "color_name": "#f2f0e4"
+        },
+        {
+            "img": "products/tile/P685RCT1224RMT/variant/variant_image_6_#ffffff.jpg",
+            "color_name": "#ffffff"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_7_#DEE2E6.jpg",
+            "color_name": "#DEE2E6"
+        },
+        {
+            "img": "products/tile/NSTERHI2X10G/variant/variant_image_7_#f2f0e4.jpg",
+            "color_name": "#f2f0e4"
+        },
+        {
+            "img": "products/tile/FDXMHMB/variant/variant_image_7_#ffffff.jpg",
+            "color_name": "#ffffff"
+        },
+        {
+            "img": "products/tile/P685RCT1224RMT/variant/variant_image_7_#a67f5b.jpg",
+            "color_name": "#a67f5b"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_8_#ffffff.jpg",
+            "color_name": "#ffffff"
+        },
+        {
+            "img": "products/tile/NSTERHI2X10G/variant/variant_image_8_#80bf90.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/tile/FDXMHMB/variant/variant_image_8_#000000.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_9_#a67f5b.jpg",
+            "color_name": "#a67f5b"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_10_#ded6cc.jpg",
+            "color_name": "#ded6cc"
+        },
+        {
+            "img": "products/tile/NSTERHI2X10G/variant/variant_image_9_#DEE2E6.jpg",
+            "color_name": "#DEE2E6"
+        },
+        {
+            "img": "products/tile/FDXMHMB/variant/variant_image_9_#000000.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_11_#000000.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/tile/NSTERHI2X10G/variant/variant_image_10_#000000.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_12_#000000.jpg",
+            "color_name": "#000000"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_13_#87cce6.jpg",
+            "color_name": "#87cce6"
+        },
+        {
+            "img": "products/tile/NSTERHI2X10G/variant/variant_image_11_#a67f5b.jpg",
+            "color_name": "#a67f5b"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_14_#fff7a3.jpg",
+            "color_name": "#fff7a3"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_15_#e85454.jpg",
+            "color_name": "#e85454"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_16_#DEE2E6.jpg",
+            "color_name": "#DEE2E6"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_17_#87cce6.jpg",
+            "color_name": "#87cce6"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_18_#a67f5b.jpg",
+            "color_name": "#a67f5b"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_19_#80bf90.jpg",
+            "color_name": "#80bf90"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_20_#DEE2E6.jpg",
+            "color_name": "#DEE2E6"
+        },
+        {
+            "img": "products/tile/K17536MOD1P4/variant/variant_image_21_#80bf90.jpg",
+            "color_name": "#80bf90"
+        }
+    ],
+    "images": [
+        "products/tile/M018ELHEXQPMS1U/slide/slide_image_1.jpg",
+        "products/tile/P685RCT1224RMT/slide/slide_image_1.jpg",
+        "products/tile/P685RCT1224RMT/slide/slide_image_2.jpg",
+        "products/tile/FDXMHMB/slide/slide_image_1.jpg",
+        "products/tile/P685RCT1224RMT/slide/slide_image_3.jpg",
+        "products/tile/FDXMHMB/slide/slide_image_2.jpg",
+        "products/tile/FDXMHMB/slide/slide_image_3.jpg",
+        "products/tile/NSTERHI2X10G/slide/slide_image_1.jpg",
+        "products/tile/FDXMHMB/slide/slide_image_4.jpg",
+        "products/tile/NSTERHI2X10G/slide/slide_image_2.jpg",
+        "products/tile/FDXMHMB/slide/slide_image_5.jpg",
+        "products/tile/NSTERHI2X10G/slide/slide_image_3.jpg",
+        "products/tile/FDXMHMB/slide/slide_image_6.jpg",
+        "products/tile/NSTERHI2X10G/slide/slide_image_4.jpg",
+        "products/tile/FDXMHMB/slide/slide_image_7.jpg"
+    ],
+    "details_content": "<div class=\"lh-copy H_oFW\">\n <p>\n  Please review Build.com return policy for Flooring and Tile Products, certain restrictions may apply on general returns. If flooring arrives damaged or is defective, please call for assistance (800-375-3403)\n </p>\n <p>\n  Transform your space into a tribute to retro design with this Metro Hex Matte porcelain mosaic floor and wall tile. As a modern deviation from the classic hexagon mosaic, this tile option is a throwback to traditional retro design with a contemporary feel. Matte hexagons are precisely arranged on an interlocking mesh to create a seamless installation. This minimalistic geometric porcelain mosaic is unique yet simplistic enough to integrate into any design, ranging from traditional style renovations to modern home projects. Its impervious and frost-resistant features make this an ideal tile for both indoor and outdoor residential use, including backsplashes, bathrooms, showers and kitchens. This tile is a perfect choice on its own or paired with other products in the Metro Hex Collection. Tile is the better choice for your space. This tile is made from natural ingredients, making it a healthy choice as it is free from allergens, VOCs, formaldehyde and PVC\n </p>\n <p>\n  <strong>\n   Features:\n  </strong>\n </p>\n <ul>\n  <li>\n   Produced from porcelain\n  </li>\n  <li>\n   Comes with a matte surface\n  </li>\n  <li>\n   Scores a 5 on the Mohs Hardness Scale\n  </li>\n  <li>\n   Manufactured in Thailand\n  </li>\n </ul>\n <p>\n  <strong>\n   Installation:\n  </strong>\n </p>\n <ul>\n  <li>\n   Designed for installation on floors, walls and other applications\n  </li>\n  <li>\n   Uses thin-set installation method\n  </li>\n  <li>\n   Suitable for indoor and outdoor installation\n  </li>\n  <li>\n   Able to be used in residential or commercial applications\n  </li>\n </ul>\n <p>\n  <strong>\n   Dimensions:\n  </strong>\n </p>\n <ul>\n  <li>\n   Nominal: 10\" x 12\"\n  </li>\n  <li>\n   Thickness: 1/4\"\n  </li>\n </ul>\n</div>\n"
+}
