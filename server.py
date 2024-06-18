@@ -4,12 +4,14 @@ import os
 
 # from bs4 import BeautifulSoup
 # from requests_html import AsyncHTMLSession
-from getAllProductsLinks import scrape_product_links_shawfloors
+from getAllProductsLinks import scrape_product_links
+from build_links_scraper import scrape_product_links_build
+
 # from getTotalPages import get_total_pages
 # from getDetailsAllPages import scrape_webpage
 # from concurrent.futures import ThreadPoolExecutor
 from pydantic import BaseModel
-from color import get_color
+# from color import get_color
 from hardwood import hardwood_scrape_urls
 from vinyl import vinyl_scrape_urls
 
@@ -17,11 +19,14 @@ from vinyl import vinyl_scrape_urls
 # from texture import get_texture
 # from Type import get_type_data
 # import collections
-from descriptionMaker import generate_rewrite
-from seolink import generate_seo_link
-from getProFullDetail import scrape_urls
-from all_build_p_details import scrape_product_links_build
-
+# from descriptionMaker import generate_rewrite
+# from seolink import generate_seo_link
+from get_shawfloor_products_details import get_shawfloor_products_data
+from get_build_products_details import get_build_products_data
+from get_buildersInterior_products_details import get_buildersInteriors_products_data
+from buildersinteriors_links_scraper import scrape_product_links_buiders_interiors
+from llflooring_links_scraper import scrape_product_links_llflooring
+from get_llflooring_products_details import get_llflooring_products_data
 # from getThumbSliderImages import thumb_slider_images
 app = FastAPI()
 from fastapi.staticfiles import StaticFiles
@@ -84,7 +89,7 @@ class URLRequest(BaseModel):
 
 @app.post("/getcarpet")
 async def get_products_details(request: URLRequest):
-    product = scrape_urls(request.urls)
+    product = get_shawfloor_products_data(request.urls)
     print(product)
     # with ThreadPoolExecutor() as executor:
     #     executor.map(scrape_webpage, request.urls)
@@ -99,30 +104,62 @@ class URLsRequest(BaseModel):
     category:str
 
 @app.post("/page-products-links")
-def get_products_details(request: URLsRequest):
+async def get_products_links(request: URLsRequest):
     try:
-        if request.category[:-1] == "carpets":
-            product_links = scrape_product_links_shawfloors(request.no, request.category[:-1])
-        elif request.category[:-1] == "hardwoods":
-            product_links = scrape_product_links_shawfloors(request.no, request.category[:-1])
-        elif request.category[:-1] == "vinyls":
-            product_links = scrape_product_links_shawfloors(request.no, request.category[:-1])
-        elif request.category[:-1] == "tiles":
-            product_links = scrape_product_links_build(request.urls, request.folder)
-        elif request.category[:-1] == "sinks":
-            product_links = scrape_product_links_build(request.urls, request.folder)
-        elif request.category[:-1] == "faucets":
-            product_links = scrape_product_links_build(request.urls, request.folder)
-        elif request.category[:-1] == "vanities":
-            product_links = scrape_product_links_build(request.urls, request.folder)
-        elif request.category[:-1] == "doors":
-            product_links = scrape_product_links_shawfloors(request.no, request.category[:-1])   
-        elif request.category[:-1] == "laminates":
-            product_links = scrape_product_links_shawfloors(request.no, request.category[:-1])   
-        elif request.category[:-1] == "countertops":
-            product_links = scrape_product_links_shawfloors(request.no, request.category[:-1])             
-        print(product_links)
+        if request.category == "carpets":
+            product_links = scrape_product_links(request.no, request.category[:-1])
+        elif request.category == "hardwoods":
+            product_links = scrape_product_links(request.no, request.category[:-1])
+        elif request.category == "vinyls":
+            product_links = scrape_product_links(request.no, request.category[:-1])
+        elif request.category == "tiles":
+            product_links = scrape_product_links_build("https://www.build.com/shop-all-vanities/c113572?page=", 1, 2)
+        elif request.category == "sinks":
+            product_links = scrape_product_links_build("https://www.build.com/undermount-kitchen-sinks/c113813?page=", 1, 2)
+        elif request.category == "faucets":
+            product_links = scrape_product_links_build("https://www.build.com/all-kitchen-faucets/c108514?page=", 1, 2)
+        elif request.category == "vanities":
+            product_links = scrape_product_links_build("https://www.build.com/shop-all-vanities/c113572?page=", 1, 2)
+        elif request.category == "doors":
+            product_links = await scrape_product_links_build("https://www.build.com/all-doors-main/c82041374?page=", 1, 2)
+        elif request.category == "laminates":
+            product_links = await scrape_product_links_llflooring('https://www.llflooring.com/c/laminate-flooring/', 1)   
+        elif request.category == "countertops":
+            product_links = await scrape_product_links_buiders_interiors('https://www.buildersinteriors.com/shop/slab/?bi=1&really_curr_tax=49-product_cat',request.no)             
         return {"product_links": product_links}
+    except Exception as e:
+        print(e)
+        # raise HTTPException(status_code=500, detail=str(e)) 
+
+class URLRequest(BaseModel):
+    urls: List[str]
+    category: str
+
+@app.post("/fetch-products")
+async def get_products_details(request: URLRequest):
+    try:
+        if request.category == "carpets":
+            products_data = get_shawfloor_products_data(request.urls, request.category)
+        elif request.category == "hardwoods":
+            products_data = get_shawfloor_products_data(request.urls, request.category)
+        elif request.category == "vinyls":
+            products_data = get_shawfloor_products_data(request.urls, request.category)
+        elif request.category == "tiles":
+            products_data = get_build_products_data(request.urls, request.category)
+        elif request.category == "sinks":
+            products_data = get_build_products_data(request.urls, request.category)
+        elif request.category == "faucets":
+            products_data = get_build_products_data(request.urls, request.category)
+        elif request.category == "vanities":
+            products_data = get_build_products_data(request.urls, request.category)
+        elif request.category == "doors":
+            products_data = get_build_products_data(request.urls, request.category)
+        elif request.category == "laminates":
+            products_data = await get_llflooring_products_data(request.urls)   
+        elif request.category == "countertops":
+            products_data = get_buildersInteriors_products_data(request.urls)             
+        print(products_data)
+        return products_data
     except Exception as e:
         print(e)
         # raise HTTPException(status_code=500, detail=str(e)) 
@@ -211,8 +248,8 @@ async def get_vinyl_details(request: URLRequest):
 #     return {"width": width}
 
 
-# class DescriptionRequest(BaseModel):
-#     parameters:object
+class DescriptionRequest(BaseModel):
+    parameters:object
 
 # @app.post("/gendescription")
 # def get_desc(request: DescriptionRequest):
@@ -230,13 +267,14 @@ async def get_vinyl_details(request: URLRequest):
 
 # build site
 
-# class URLRequest(BaseModel):
-#     urls: List[str]
-#     folder: str
+class URLRequest(BaseModel):
+    urls: List[str]
+    category: str
 
-# @app.post("/b_product_links")
+# @app.post("/fetch-products")
 # async def get_products_details(request: URLRequest):
-#     product = scrape_product_links_build(request.urls, request.folder)
+#     print(request)
+#     product = get_build_products_data(request.urls, request.category)
 #     # with ThreadPoolExecutor() as executor:
 #     #     executor.map(scrape_webpage, request.urls)
 #     return product

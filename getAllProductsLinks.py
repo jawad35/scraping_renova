@@ -21,7 +21,7 @@ def scrape_page(driver, page_number, baseurl, product_links, category):
     except Exception as e:
         print(f"An error occurred while scraping page {page_number}: {e}")
 
-def scrape_product_links_shawfloors(total_pages, category):
+def scrape_product_links(total_pages, category):
     try:
         baseurl = "https://shawfloors.com"
         product_links = []

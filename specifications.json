@@ -1,0 +1,51 @@
+{
+    "t1": {
+        "article-number": "10DD7",
+        "ac-rating-(laminates)": "4",
+        "color": "Gray",
+        "design-or-layout-style": "Straight Randomized",
+        "direct-print": "No",
+        "edge-locking-type": "Angle / Fold",
+        "edge-profile": "Click",
+        "edge-type": "2-side bevel",
+        "installation-areas": "Dry Areas",
+        "installation-grade": "Above Grade,, On Grade,, Below Grade",
+        "installation-type": "Click",
+        "intended-usage": "Residential Applications,, Light Commercial Applications",
+        "nominal-gloss-level-(g.u.)": "5",
+        "pad-attached": "Yes",
+        "pad-recommended": "No",
+        "pad-type": "XPS",
+        "pattern": "No Pattern",
+        "pattern-repeat-count": "10",
+        "sample-sku": "10050047",
+        "shade": "Light",
+        "species-look": "Oak",
+        "texture": "Subtle",
+        "waste-allowance": "<=10 %",
+        "water-relevance-level": "Not Applicable,, None",
+        "wood-or-stone-look": "Wood Look"
+    },
+    "t2": {
+        "average-length": "54.45 in.",
+        "box-weight": "31.618 lb.",
+        "boxes-per-pallet": "48",
+        "maximum-plank-length": "54.45 in.",
+        "minimum-plank-length": "54.45 in.",
+        "overall-thickness-(actual)": "10 mm",
+        "overall-thickness-(nominal)": "10 mm",
+        "pallet-weight": "1517.672 lb.",
+        "total-per-pallet": "827.52 FT2",
+        "width": "7.6 in."
+    },
+    "t3": {
+        "residential-warranty": "Lifetime Warranty",
+        "heavy-commercial-warranty": "No Warranty",
+        "light-commercial-warranty": "10 Year Warranty",
+        "greenguardgold-certification": "0185133420"
+    },
+    "name": "10mm Delaware Bay Driftwood w/pad Laminate Flooring 7.6 in. Wide x 54.45 in. Long",
+    "price": "1.99",
+    "brand": "Dream Home XD",
+    "model": "10050045"
+}
