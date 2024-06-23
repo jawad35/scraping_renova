@@ -7,8 +7,8 @@ def meta_title_generator(title):
         client = openai.Client(api_key=os.getenv("OPENAI_SECRET"))
         completion = client.completions.create(
             model="gpt-3.5-turbo-instruct",
-            prompt=f"Please rewrite the title precisly'{title}'",
-            max_tokens=200,
+            prompt=f"Please rewrite the title precisly only 60-70 characters long and pipes where needed'{title}'",
+            max_tokens=100,
             temperature=0
         )
         return completion.choices[0].text.strip()

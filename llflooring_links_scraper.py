@@ -25,10 +25,10 @@ async def extract_links(base_url, url, session):
         links.append(full_url)
     return links
 
-async def scrape_all_pages(base_url, max_pages):
+async def scrape_all_pages(base_url, min, max):
     async with ClientSession() as session:
         tasks = []
-        for page in range(1, max_pages + 1):
+        for page in range(min, max + 1):
             sz_value = page * 24  # Calculate the `sz` value based on the page number
             url = f"{base_url}?sz={sz_value}"
             tasks.append(extract_links(base_url, url, session))
@@ -38,12 +38,12 @@ async def scrape_all_pages(base_url, max_pages):
         return all_links
 
 # Run the event loop to scrape all pages
-def scrape_product_links_llflooring(base_url, max_pages):
-    return scrape_all_pages(base_url, max_pages)
+def scrape_product_links_llflooring(base_url, min, max):
+    return scrape_all_pages(base_url, min, max)
 
 # # Example usage
 # if __name__ == "__main__":
 #     base_url = "https://www.llflooring.com/c/laminate-flooring/"
-#     max_pages = 1  # Set this to the number of pages you want to scrape
-#     links = scrape_product_links_llflooring(base_url, max_pages)
+#     max = 1  # Set this to the number of pages you want to scrape
+#     links = scrape_product_links_llflooring(base_url, max)
 #     print(links)

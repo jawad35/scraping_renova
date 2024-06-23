@@ -39,7 +39,7 @@ if not os.path.exists(base_directory):
 
 # Mount the static files directory
 app.mount("/products", StaticFiles(directory=base_directory), name="products")
-app.mount("/images", StaticFiles(directory="images"), name="images")
+# app.mount("/images", StaticFiles(directory="images"), name="images")
 # app.mount("/slides", StaticFiles(directory="slides"), name="slides")
 
 # async def scrape_color_info(url):
@@ -100,32 +100,33 @@ class URLsRequest(BaseModel):
     url:str
 
 class URLsRequest(BaseModel):
-    no: int
+    min: int
+    max: int
     category:str
 
 @app.post("/page-products-links")
 async def get_products_links(request: URLsRequest):
     try:
         if request.category == "carpets":
-            product_links = scrape_product_links(request.no, request.category[:-1])
+            product_links = scrape_product_links(request.min, request.max, request.category[:-1])
         elif request.category == "hardwoods":
-            product_links = scrape_product_links(request.no, request.category[:-1])
+            product_links = scrape_product_links(request.min, request.max, request.category[:-1])
         elif request.category == "vinyls":
-            product_links = scrape_product_links(request.no, request.category[:-1])
+            product_links = scrape_product_links(request.min, request.max, request.category[:-1])
         elif request.category == "tiles":
-            product_links = scrape_product_links_build("https://www.build.com/shop-all-vanities/c113572?page=", 1, 2)
+            product_links = await scrape_product_links_build("https://www.build.com/shop-all-vanities/c113572?page=", request.min, request.max)
         elif request.category == "sinks":
-            product_links = scrape_product_links_build("https://www.build.com/undermount-kitchen-sinks/c113813?page=", 1, 2)
+            product_links = await scrape_product_links_build("https://www.build.com/undermount-kitchen-sinks/c113813?page=", request.min, request.max)
         elif request.category == "faucets":
-            product_links = scrape_product_links_build("https://www.build.com/all-kitchen-faucets/c108514?page=", 1, 2)
+            product_links = await scrape_product_links_build("https://www.build.com/all-kitchen-faucets/c108514?page=", request.min, request.max)
         elif request.category == "vanities":
-            product_links = scrape_product_links_build("https://www.build.com/shop-all-vanities/c113572?page=", 1, 2)
+            product_links = await scrape_product_links_build("https://www.build.com/shop-all-vanities/c113572?page=", request.min, request.max)
         elif request.category == "doors":
-            product_links = await scrape_product_links_build("https://www.build.com/all-doors-main/c82041374?page=", 1, 2)
+            product_links = await scrape_product_links_build("https://www.build.com/all-doors-main/c82041374?page=", request.min, request.max)
         elif request.category == "laminates":
-            product_links = await scrape_product_links_llflooring('https://www.llflooring.com/c/laminate-flooring/', 1)   
+            product_links = await scrape_product_links_llflooring('https://www.llflooring.com/c/laminate-flooring/', request.min, request.max)   
         elif request.category == "countertops":
-            product_links = await scrape_product_links_buiders_interiors('https://www.buildersinteriors.com/shop/slab/?bi=1&really_curr_tax=49-product_cat',request.no)             
+            product_links = await scrape_product_links_buiders_interiors('https://www.buildersinteriors.com/shop/slab/?bi=1&really_curr_tax=49-product_cat',request.min, request.max)             
         return {"product_links": product_links}
     except Exception as e:
         print(e)
@@ -158,7 +159,6 @@ async def get_products_details(request: URLRequest):
             products_data = await get_llflooring_products_data(request.urls)   
         elif request.category == "countertops":
             products_data = get_buildersInteriors_products_data(request.urls)             
-        print(products_data)
         return products_data
     except Exception as e:
         print(e)

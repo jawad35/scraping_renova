@@ -26,7 +26,7 @@ def extract_hrefs(html):
     return [link.get('href') for link in links]
 
 async def scrape_product_links_build(base_url, start_page, end_page):
-    urls = [f"{base_url}&page={i}" for i in range(start_page, end_page+1)]
+    urls = [f"{base_url}&page={i}" for i in range(start_page, end_page)]
     html_pages = await fetch_all(urls)
     all_hrefs = []
     for html in html_pages:

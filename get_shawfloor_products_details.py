@@ -16,7 +16,7 @@ import queue
 from utils.meta_description_generator import meta_description_generator
 from utils.meta_title_generator import meta_title_generator
 from utils.price_decreaser import price_decreaser
-
+from utils.rewriter import rewriter
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -24,11 +24,6 @@ load_dotenv()
 base_url = "http://localhost:8000/"
 
 app = FastAPI()
-
-# proxies={
-#     'http': 'http://jawad024:ZsvM_sKT=UN7zxg@pr.oxylabs.io:7777',
-#     'https': 'http://jawad024:ZsvM_sKT=UN7zxg@pr.oxylabs.io:7777',
-# }
 
 def rewrite_description(description):
     try:
@@ -44,21 +39,20 @@ def rewrite_description(description):
         print(f"Error generating rewrite: {e}")
         return description
 
-def download_image(image_url, save_directory='images'):
+def download_image(image_url, save_directory):
     try:
         parsed_url = urlparse(image_url)
         image_name = os.path.basename(parsed_url.path)
         if not os.path.exists(save_directory):
             os.makedirs(save_directory)
         headers = {'User-Agent': 'Mozilla/5.0'}
-        # response = requests.get(image_url, headers=headers, stream=True, proxies=proxies)
         response = requests.get(image_url, headers=headers, stream=True)
         if response.status_code == 200:
             image_path = os.path.join(save_directory, image_name)
             with open(image_path, 'wb') as file:
                 for chunk in response.iter_content(chunk_size=1024):
                     file.write(chunk)
-            return image_name
+            return image_path
         else:
             print(f"Failed to retrieve the image. Status code: {response.status_code}")
             return None
@@ -81,7 +75,7 @@ def extract_table_data(driver, accordion_header_ids):
             for row in rows:
                 cells = row.find_elements(By.TAG_NAME, 'td')
                 if len(cells) == 2:
-                    key = cells[0].text.strip()
+                    key = cells[0].text.strip().replace(" ","-").lower()
                     value = cells[1].text.strip()
                     data[key] = value
         return data
@@ -95,90 +89,107 @@ def download_slider_image(url, filename):
         file.write(response.content)
     print(f"Downloaded image {filename}")
 
+def get_text_after_segment(url, segment):
+    parts = url.split('/')
+    try:
+        return '/'.join(parts[parts.index(segment) + 1:])
+    except ValueError:
+        return None
+    
 def get_all_product_details(url, category):
     try:
-        parsed_url = urlparse(url)
-        last_segment = parsed_url.path.split('/')[-1]
+        last_segment = get_text_after_segment(url, 'details').replace(" ", '-').lower()
         chrome_options = Options()
-        # chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
         driver = webdriver.Chrome(options=chrome_options)
         driver.get(url)
         try:
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "onetrust-reject-all-handler"))).click()
         except:
             pass
-
         product_details_container = driver.find_element(By.ID, 'full-product-details-header-desktop')
-        price = product_details_container.find_element(By.CLASS_NAME, 'price-amount').text.strip()
-
         about_section = driver.find_element(By.ID, 'full-product-details-about')
         details_content = about_section.text.strip().split("Learn more")[0].strip()
-
         accordion_header_ids = ['headingOne']
         table_data = extract_table_data(driver, accordion_header_ids)
         swatch_items = driver.find_elements(By.CLASS_NAME, 'swatch-item')
         details_content = rewrite_description(details_content)
-        price = price_decreaser(price)
-        print(table_data)
-        price(meta_description_generator(table_data))
+        price = product_details_container.find_element(By.CLASS_NAME, 'price-amount').text.strip()
+        price = price_decreaser(f'${price}')
         thumb_slider = driver.find_element(By.CSS_SELECTOR, 'div.thumb-slider')
-        # Initialize a list to store the image data
-        variant_images_data = []
-        slide_images_data = []
-                # Check if thumb_slider is not None before proceeding
 
+        # Directory setup
+        main_directory = "products"
+        category_directory = os.path.join(main_directory, category)
+        product_directory = os.path.join(category_directory, last_segment.replace("/", "-").replace(" ", "").lower())
+        variant_directory = os.path.join(product_directory, "variants")
+        slide_directory = os.path.join(product_directory, "slides")
+
+        os.makedirs(variant_directory, exist_ok=True)
+        os.makedirs(slide_directory, exist_ok=True)
+
+        # Initialize a list to store the image data
+        image_data = []
+        slide_data = []
 
         processed_images = 0  # Initialize counter for processed images
 
+        for item in swatch_items:
+            try:
+                color_name = item.find_element(By.CLASS_NAME, 'item-color-name').get_attribute('innerHTML').replace('<br>', ' ').strip()
+                background_image_style = item.find_element(By.CLASS_NAME, 'swatchThumb').get_attribute('style')
+                background_image_url = background_image_style.split('url(')[-1].split(');')[0].strip('\'"')
+                image_path = download_image(background_image_url, variant_directory)
+                print(image_path)
 
-        parsed_url = urlparse(url)
-        path = parsed_url.path
-        # Adding debug statement
-        print(f"Parsed URL path: {path}")
-        parts = path.split("/flooring/")
-        if len(parts) > 1:
-            desired_part = parts[1]
+                
+                if image_path:
+                    processed_images += 1  # Increment counter for successfully processed image
+                    image_data.append({"color_name": color_name.replace(" ", '-').lower(), "image_url": image_path})
+            except Exception as e:
+                print(f"Error processing swatch item: {e}")
+        print(f"Total images processed: {processed_images}")
+        if thumb_slider:
+            # Extract big images
+            big_images = driver.find_elements(By.CSS_SELECTOR, '.thumb-slider .aSlide:not([tabindex="-1"])')
+            for i, slide in enumerate(big_images):
+                # Extract big image URL
+                big_image_url = slide.get_attribute('data-url')
+                big_image_path = os.path.join(slide_directory, f'slide_image_{i}.jpg')
+                # Download image
+                download_slider_image(big_image_url, big_image_path)
+                print(os.path.relpath(big_image_path, start=main_directory), '90')
+                # Add image URL and path to the image_data list
+                slide_data.append(big_image_path)
+            # Save the image data to a JSON file
+            with open('slider-images.json', 'w') as json_file:
+                json.dump(image_data, json_file, indent=4)
+            print("Image data saved to slider-images.json")
         else:
-            print(f"Error: Unexpected URL structure: {path}")
-            desired_part = "unknown"
-        print(table_data)
-        print(meta_description_generator(table_data))
-        product_data = {
-            'meta_description':meta_description_generator(table_data),
-            # 'meta_title':meta_title_generator(table_data),
-            # 'uid':uid,
-            'price': price,
-            # 'model': '',
-            'category':category,
-            'tables_data': {"t1":table_data},
-            'variants': variant_images_data,
-            'images': slide_images_data,
-            "details": details_content
-        }
-        print(product_data)
+            print("Thumbnail slider not found.")
+        parsed_url = urlparse(url)
+        path_components = parsed_url.path.split('/')
+        product_id = path_components[-2].replace('-', ' ')  # Replace hyphens with spaces
+        product_name = path_components[-1].replace('-', ' ')  # Replace hyphens with spaces
+        title = f'{product_name} {product_id}' 
+        pro_url = f'{product_id.replace(" ", "-").lower()}-{product_name.replace(" ", "-").lower()}-{table_data.get('width').replace(" ", '')}-{table_data.get('collection').replace(" ", "-").lower()}' 
         product_details = {
-            "meta-title":"",
-            "category": "carpets",
-            "url": "/" + desired_part,
-            "style": table_data.get("Style", ""),
-            "color": table_data.get("Color", ""),
-            "collection": table_data.get("Collection", ""),
-            "construction": table_data.get("Construction", ""),
-            "finish": table_data.get("Finish", ""),
-            "width": table_data.get("Width", ""),
-            "length": table_data.get("Length", ""),
-            "plank_thickness": table_data.get("Plank Thickness", ""),
-            "sq_ft_per_box": table_data.get("Sq. Ft. Per Box", ""),
-            "installation_method": table_data.get("Installation Method", ""),
-            "installation_grade": table_data.get("Installation Grade", ""),
-            "wear_layer": table_data.get("Wear Layer", ""),
-            "description": details_content,
-            "variants": variant_images_data,
-            "images":slide_images_data
+            'meta_description':meta_description_generator({"t1": table_data}),
+            'meta_title':meta_title_generator(title),
+            'url':pro_url,
+            'uid': product_id.replace(" ", "-").lower(),
+            'price': price,
+            'brand': 'shawfloors',
+            'model':product_id.replace(" ", "-").lower(),
+            'category': category.lower(),
+            'specifications': {"t1": table_data},
+            'variants': image_data,
+            'images': slide_data,
+            "details": {"p":rewriter(details_content)}
         }
-        print(product_details)
         with open("product-details.json", "a") as json_file:
             json.dump(product_details, json_file, indent=4)
+        
         return product_details
     except Exception as e:
         print(f"Error scraping product details: {e}")
@@ -198,7 +209,6 @@ def process_url(url, results_queue, category):
         print(f"Error processing URL {url}: {e}")
 
 def get_shawfloor_products_data(urls, category):
-
     threads = []
     results_queue = queue.Queue()
 
@@ -215,19 +225,9 @@ def get_shawfloor_products_data(urls, category):
         results.append(results_queue.get())
     return results
 
-# Example usage:
-urls = [
-    # "https://shawfloors.com/flooring/carpet/details/cabana-life-(t)-e9958/walking-trail",
-    # "https://shawfloors.com/flooring/carpet/details/tonal-comfort-blue-5e658/sun-kissed",
-    # "https://shawfloors.com/flooring/carpet/details/essential-now-5e290/serene-still",
-    # "https://shawfloors.com/flooring/hardwood/details/landmark-sliced-oak-sw747/gateway",
-    "https://shawfloors.com/flooring/vinyl/details/paragon-hdnatural-bevel-3038v/oriel",
-    # "https://shawfloors.com/flooring/vinyl/details/paragon-tile-plus-1022v/shale",
-    # "https://shawfloors.com/flooring/vinyl/details/infinite-8-3339v/raw-sienna",
-    # "https://shawfloors.com/flooring/vinyl/details/intrepid-hd-plus-2024v/distressed-pine"
-    # "https://shawfloors.com/flooring/carpet/details/fine-structure-cc69b/grounded-gray",
-    # "https://shawfloors.com/flooring/carpet/details/fine-structure-cc69b/sunbaked",
-    # "https://shawfloors.com/flooring/carpet/details/fine-structure-cc69b/natural-beauty"
-    # Add more URLs as needed
-]
+# # Example usage:
+# urls = [
+#     "https://shawfloors.com/flooring/carpet/details/vintage-revival-cc77b/turmeric",
+#     # Add more URLs as needed
+# ]
 # get_shawfloor_products_data(urls, 'vinyl')

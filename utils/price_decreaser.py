@@ -2,9 +2,11 @@ import random
 
 
 def price_decreaser(price):
+    print(price)
     try:
         # Remove the dollar sign and comma
         price_value = float(price.replace('$', '').replace(',', ''))
+        print(price_value)
         
         # Decrease by a random amount between 0.01 and 0.05
         decrease_amount = random.uniform(0.01, 0.05)

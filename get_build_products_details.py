@@ -11,42 +11,17 @@ from dotenv import load_dotenv
 from urllib.parse import urlparse, parse_qs
 from utils.get_page_details_part import get_details_part
 import time
+from utils.meta_description_generator import meta_description_generator
+from utils.meta_title_generator import meta_title_generator
+from utils.price_decreaser import price_decreaser
+from utils.rewriter import rewriter
+
 load_dotenv()
 
 app = FastAPI()
 
 variant_images_data = []
 slide_images_data = []
-
-def decrease_price(price):
-    try:
-        # Remove the dollar sign and comma
-        price_value = float(price.replace('$', '').replace(',', ''))
-        
-        # Decrease by a random amount between 0.01 and 0.05
-        decrease_amount = random.uniform(0.01, 0.05)
-        new_price_value = price_value - decrease_amount
-        
-        # Format the new price to two decimal places
-        new_price = f"{new_price_value:.2f}"
-        return new_price
-    except Exception as e:
-        print(f"Error decreasing price: {e}")
-        return price
-
-def meta_description_generator(description):
-    try:
-        client = openai.Client(api_key=os.getenv("OPENAI_SECRET"))
-        completion = client.completions.create(
-            model="gpt-3.5-turbo-instruct",
-            prompt=f"based on provided tables data ready comprehensive meta description that highlights key features from each table with english words must cover within 100 characters only'{description}'",
-            max_tokens=150,
-            temperature=0
-        )
-        return completion.choices[0].text.strip()
-    except Exception as e:
-        print(f"Error decreasing price: {e}")
-        return description
 
 def generate_rewrite(description):
     try:
@@ -60,21 +35,7 @@ def generate_rewrite(description):
         return completion.choices[0].text.strip()
     except Exception as e:
         print(f"Error generating rewrite: {e}")
-        return description
-    
-def meta_title_generator(title):
-    try:
-        client = openai.Client(api_key=os.getenv("OPENAI_SECRET"))
-        completion = client.completions.create(
-            model="gpt-3.5-turbo-instruct",
-            prompt=f"Please rewrite the title precisly'{title}'",
-            max_tokens=200,
-            temperature=0
-        )
-        return completion.choices[0].text.strip()
-    except Exception as e:
-        print(f"Error generating rewrite: {e}")
-        return title    
+        return description 
 
 def download_image(url, folder_path, image_name):
     try:
@@ -94,7 +55,7 @@ def process_url(url, base_image_folder, products_json):
         response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
         soup = BeautifulSoup(response.content, 'html.parser')
         # Find the span tags with the specific attributes and class names
-        price_span = soup.find('span', {'data-automation': 'price', 'class': 'lh-copy'})
+        price_span = soup.find('span', {'data-automation': 'price'})
         model_span = soup.find('span', {'data-automation': 'product-model-number', 'class': 'b'})
         product_title_span = soup.find('span', {'class': 'fw2 di-ns'})
         h1_tag = soup.find('h1', class_='lh-title')
@@ -148,7 +109,7 @@ def process_url(url, base_image_folder, products_json):
                     for row in rows:
                         cols = row.find_all('td')
                         if len(cols) == 2:
-                            key = cols[0].get_text(strip=True)
+                            key = cols[0].get_text(strip=True).replace(" ","-").lower()
                             value = cols[1].get_text(strip=True)
                             tbody_data[key] = value
                     if tbody_data:
@@ -158,7 +119,7 @@ def process_url(url, base_image_folder, products_json):
                     all_tables_data.update(table_data)
         meta_description = meta_description_generator(all_tables_data)
         meta_title = meta_title_generator(product_title)
-        newprice = decrease_price(price)
+        newprice = price_decreaser(price)
 
         # Create directories for the product
         root_folder = 'products'
@@ -167,8 +128,8 @@ def process_url(url, base_image_folder, products_json):
         os.makedirs(product_folder, exist_ok=True)
 
         # Create subfolders for slide and variant images
-        slide_folder = os.path.join(product_folder, 'slide')
-        variant_folder = os.path.join(product_folder, 'variant')
+        slide_folder = os.path.join(product_folder, 'slides')
+        variant_folder = os.path.join(product_folder, 'variants')
         os.makedirs(slide_folder, exist_ok=True)
         os.makedirs(variant_folder, exist_ok=True)
 
@@ -186,35 +147,40 @@ def process_url(url, base_image_folder, products_json):
                             style = color_div.get('style')
                             color = style.split('background-color:')[1].split(';')[0].strip()
                             img_name = f'{type}_image_{index+1}.jpg'
-                            variant_images_data.append({'img': f'products/{base_image_folder}/{model}/variant/{img_name}', 'color_name': color})
+                            variant_images_data.append({'img': f'products/{base_image_folder}/{model}/variants/{img_name}', 'color_name': color})
                     download_image(img_url, folder, img_name)
                     if type == 'slide':
-                        slide_images_data.append(f'products/{base_image_folder}/{model}/slide/{img_name}')
+                        slide_images_data.append(f'products/{base_image_folder}/{model}/slides/{img_name}')
 
         # Download images
-        # download_images_from_divs('br2', 'variant')
-        # download_images_from_divs('transform-component-module_content__FBWxo', 'slide')
+        download_images_from_divs('br2', 'variant')
+        download_images_from_divs('transform-component-module_content__FBWxo', 'slide')
 
         # Generate rewrite for details content
         # details_content = generate_rewrite(details_content)
 
         # Save the extracted table data and other details to a JSON file
+        # Find the <span> with data-automation="finish-name"
+        span = soup.find('span', {'data-automation': 'finish-name'})
+        if span:
+            finish_name = span.text.strip().lower()
+        pro_url = f'{brand.replace(" ", "-").lower()}-{model}-{uid}-{all_tables_data.get('t1').get('width').replace(" ",'')}-{all_tables_data.get('t1').get('height').replace(" ",'')}-{finish_name}'
         product_data = {
             'meta_description':meta_description,
             'meta_title':meta_title,
+            'url':pro_url,
             'brand':brand,
             'uid':uid,
-            'price': float(newprice),
+            'price': newprice,
             'model': model,
-            'category':base_image_folder,
-            'tables_data': all_tables_data,
+            'category':base_image_folder.lower(),
+            'specifications': all_tables_data,
             'variants': variant_images_data,
             'images': slide_images_data,
-            "details": details_content
+            "details": rewriter(details_content)
         }
 
         print(product_data)
-
         # Add the product data to the products_json list
         products_json.append(product_data)
 

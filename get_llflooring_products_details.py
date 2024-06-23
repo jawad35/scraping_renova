@@ -5,6 +5,10 @@ import json
 from bs4 import BeautifulSoup
 import re
 from aiohttp import TCPConnector
+from utils.meta_description_generator import meta_description_generator
+from utils.meta_title_generator import meta_title_generator
+from utils.price_decreaser import price_decreaser
+from utils.rewriter import rewriter
 
 async def fetch(session, url):
     async with session.get(url, ssl=False) as response:
@@ -61,37 +65,38 @@ def extract_brand(soup):
 def extract_model(soup):
     model_element = soup.find('span', class_='product-id')
     return model_element.get_text(strip=True) if model_element else None
+# Dictionary to store the content
+content_dict = {}
+
+# Function to store the content with unique keys
+def add_to_dict(tag, index, text):
+    key = f"{tag}{index}"
+    content_dict[key] = text
+
+# Initialize a counter dictionary
+counters = {}
+
+# Function to recursively scrape content
+def scrape_content(element, counters, content_dict):
+    for child in element.children:
+        if child.name is not None:
+            tag_name = child.name
+            if tag_name not in counters:
+                counters[tag_name] = 1
+            index = counters[tag_name]
+            text = child.get_text(strip=True)
+            if text:
+                # Check if the content is already in the dictionary
+                if text not in content_dict.values():
+                    add_to_dict(tag_name, index, text)
+                    counters[tag_name] += 1
+            # Recursive call to scrape nested content
+            scrape_content(child, counters, content_dict)
 
 def extract_product_details(soup):
     product_details = soup.find('div', class_='description-and-detail')
-    if not product_details:
-        raise Exception("Product details section 'description-and-detail' not found")
-
-    details_data = {}
-    process_element(product_details, details_data)
-    return details_data
-
-def process_element(element, data, tag_counts=None):
-    if tag_counts is None:
-        tag_counts = {}
-
-    if element.name == 'p' or element.name == 'ul' or element.name == 'li' or element.name == 'div' or element.name == 'h2' or element.name == 'h3' or element.name == 'h4' or element.name == 'span' or element.name == 'a':
-        tag_name = element.name
-        if tag_name not in tag_counts:
-            tag_counts[tag_name] = 1
-        else:
-            tag_counts[tag_name] += 1
-
-        numbered_tag_name = f"{tag_name}{tag_counts[tag_name]}"
-        if numbered_tag_name not in data:
-            data[numbered_tag_name] = []
-        
-        data[numbered_tag_name].append(element.get_text(strip=True))
-        
-        for child in element.children:
-            if child.name is not None:
-                process_element(child, data, tag_counts)
-    return data
+    scrape_content(product_details, counters, content_dict)
+    return content_dict
 
 async def download_images(session, soup, model):
     zoom_slider = soup.find('div', class_='product-image-zoom-slider')
@@ -99,7 +104,9 @@ async def download_images(session, soup, model):
 
     if zoom_slider:
         product_images = zoom_slider.find_all('div', class_='product-image')
-        os.makedirs('llflooringSlides', exist_ok=True)
+        model_folder = os.path.join('products', 'laminates', model)
+        slides_folder = os.path.join(model_folder, 'slides')
+        os.makedirs(slides_folder, exist_ok=True)
 
         for index, product_image in enumerate(product_images):
             img_tag = product_image.find('img')
@@ -109,19 +116,21 @@ async def download_images(session, soup, model):
                 async with session.get(img_url, ssl=False) as img_response:
                     if img_response.status == 200:
                         img_name = f"{model}_image_{index}.jpg"
-                        img_path = os.path.join('llflooringSlides', img_name)
+                        img_path = os.path.join(slides_folder, img_name)
 
                         with open(img_path, 'wb') as f:
                             f.write(await img_response.read())
 
-                        image_data.append(
-                            img_url
-                        )
+                        image_data.append(img_path.replace("\\", "/"))  # Ensure consistent path format
                     else:
                         print(f"Failed to download image {img_url}")
-
     return image_data
-
+def get_text_after_p(url):
+    try:
+        text_after_p = url.split('/p/')[1]
+        return text_after_p.replace('.html', '')
+    except IndexError:
+        return None
 async def process_url(session, url):
     html_content = await fetch(session, url)
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -133,17 +142,20 @@ async def process_url(session, url):
     specifications = extract_specifications(soup)
     details = extract_product_details(soup)
     images = await download_images(session, soup, model)
-
     data = {
-        "url": url,
-        "name": name,
-        "price": float(price),
+        'meta_description':meta_description_generator(specifications),
+        'meta_title':meta_title_generator(name),
+        "url":  f'{get_text_after_p(url)}-{specifications.get('t1').get('color').lower()}',
+        "uid":model,
+        "price": price_decreaser(f'${price}'),
         "brand": brand,
         "model": model,
+        "category":"laminates",
         "specifications": specifications,
-        "details": details,
-        "images": images
+        "details": rewriter(details),
+        "images": images,
     }
+    print(specifications)
     return data
 
 async def get_llflooring_products_data(urls):
@@ -153,16 +165,12 @@ async def get_llflooring_products_data(urls):
         results = await asyncio.gather(*tasks)
         return results
 
-# List of URLs to process
-# urls = [
-#     "https://www.llflooring.com/p/dream-home-xd-10mm-and-pad-delaware-bay-driftwood-laminate-flooring-7.6-in.-wide-x-54.45-in.-long-10050045.html",
-#     "https://www.llflooring.com/p/dream-home-8mm-mountain-trail-oak-wpad-waterproof-laminate-flooring-8.03-in.-wide-x-48-in.-long-10054225.html",
-#     # Add more URLs here
-# ]
-
-# # Run the main function and save the results
 # if __name__ == '__main__':
-#     results = asyncio.run(main(urls))
-#     with open('scraped_data.json', 'w', encoding='utf-8') as f:
-#         json.dump(results, f, ensure_ascii=False, indent=4)
-#     print("Scraping completed and data saved to scraped_data.json")
+#     urls = [
+#         "https://www.llflooring.com/p/dream-home-xd-10mm-and-pad-delaware-bay-driftwood-laminate-flooring-7.6-in.-wide-x-54.45-in.-long-10050045.html",
+#         "https://www.llflooring.com/p/dream-home-8mm-mountain-trail-oak-wpad-waterproof-laminate-flooring-8.03-in.-wide-x-48-in.-long-10054225.html"
+#         # Add more URLs here
+#     ]
+
+#     # Run the main function and save the results
+#     asyncio.run(get_llflooring_products_data(urls))

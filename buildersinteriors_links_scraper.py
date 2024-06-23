@@ -23,10 +23,10 @@ async def extract_links(url, session):
         links.append(href)
     return links
 
-async def scrape_all_pages(base_url, max_pages):
+async def scrape_all_pages(base_url, min,max):
     async with ClientSession() as session:
         tasks = []
-        for page in range(1, max_pages + 1):
+        for page in range(min, max + 1):
             url = f"{base_url}&paged={page}"
             tasks.append(extract_links(url, session))
         
@@ -36,7 +36,7 @@ async def scrape_all_pages(base_url, max_pages):
 
 
 # Run the event loop to scrape all pages
-def scrape_product_links_buiders_interiors(base_url, max_pages):
+def scrape_product_links_buiders_interiors(base_url,min, max):
     # base_url = "https://www.buildersinteriors.com/shop/slab/?bi=1&really_curr_tax=49-product_cat"
-    # max_pages = 3  # Set this to the number of pages you want to scrape
-    return scrape_all_pages(base_url, max_pages)
+    # max = 3  # Set this to the number of pages you want to scrape
+    return scrape_all_pages(base_url, min,max)
