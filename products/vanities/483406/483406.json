@@ -1,0 +1,123 @@
+{
+    "meta_description": "\"Upgrade your bathroom with this contemporary vanity set. Made of solid wood, it includes a spacious cabinet and 5 soft-close drawers. Sink and vanity top included. 36\"W x 34.25\"H x 21\"D. 3 faucet holes, 1.5\" faucet hole size. Rear drain placement. Granite, marble, or quartz vanity top. 5-year commercial warranty. Assembly required. China and Vietnam origin.\"",
+    "meta_title": "\"Quen 36\" Freestanding Vanity Set | Cabinet, Top, Oval Sink & 8\" Faucet Holes\"",
+    "url": "signature-hardware-483406-4384666-driftwood brown / arctic white quartz",
+    "brand": "Signature Hardware",
+    "uid": "4384666",
+    "price": "1848.97",
+    "model": "483406",
+    "category": "vanities",
+    "specifications": {
+        "t1": {
+            "backsplash-height": "4in.",
+            "basin-depth": "6in.",
+            "basin-length": "16in.",
+            "basin-width": "12.5in.",
+            "cabinet-depth": "21in.",
+            "cabinet-height": "34.25in.",
+            "cabinet-width": "36in.",
+            "depth": "21in.",
+            "faucet-centers": "8in.",
+            "faucet-hole-size": "1.5in.",
+            "height": "34.25in.",
+            "nominal-width": "36in.",
+            "product-weight": "260.26lbs.",
+            "sink-cutout-length": "15.375in.",
+            "sink-cutout-width": "11.75in.",
+            "sink-height": "5in.",
+            "sink-length": "16in.",
+            "sink-width": "12.5in.",
+            "vanity-top-depth": "22in.",
+            "vanity-top-thickness": "1.18in.",
+            "vanity-top-width": "37in.",
+            "width": "36in."
+        },
+        "t2": {
+            "backsplash-included": "Yes",
+            "bridge-drawer-included": "No",
+            "cabinet-hardware-included": "Yes",
+            "drain-assembly-included": "No",
+            "faucet-included": "No",
+            "light-included": "No",
+            "medicine-cabinet-included": "No",
+            "mirror-included": "No",
+            "sidesplash-included": "No",
+            "sink-included": "Yes",
+            "vanity-legs-included": "Yes",
+            "vanity-top-included": "Yes"
+        },
+        "t3": {
+            "assembly-required": "Yes",
+            "drain-placement": "Rear",
+            "faucet-holes": "3",
+            "faucet-mounting-type": "Widespread",
+            "finished-back": "Yes",
+            "installation-type": "Free Standing, Undermount",
+            "made-of-solid-wood": "Yes",
+            "material": "Wood",
+            "number-of-basins": "1",
+            "number-of-doors": "2",
+            "number-of-drawers": "5",
+            "number-of-shelves": "0",
+            "overflow": "Yes",
+            "sink-material": "Porcelain",
+            "sink-shape": "Oval",
+            "soft-close-hinges": "Yes",
+            "soft-close-slides": "Yes",
+            "theme": "Contemporary",
+            "vanity-top-material": "Granite, Marble, Quartz"
+        },
+        "t4": {
+            "approved-for-commercial-use": "Yes",
+            "collection": "Quen",
+            "commercial-warranty": "5 Year Limited",
+            "country-of-origin": "China, Vietnam",
+            "manufacturer-warranty": "25 Year Limited"
+        }
+    },
+    "variants": {
+        "1_-_length": [],
+        "2-_vanity_cabinet_finish": [
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/signaturehardware/signature-hardware-480641-6324121.jpg",
+                "model": "signature-hardware-480641",
+                "title": "Gray",
+                "price": "$1,799.00"
+            },
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/signaturehardware/signature-hardware-483413-3283655.jpg",
+                "model": "signature-hardware-483413",
+                "title": "Midnight Navy Blue",
+                "price": "$1,849.00"
+            },
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/signaturehardware/signature-hardware-480654-6324121.jpg",
+                "model": "signature-hardware-480654",
+                "title": "Soft White",
+                "price": "$1,799.00"
+            },
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/signaturehardware/signature-hardware-483406-3283655.jpg",
+                "model": "signature-hardware-483406",
+                "title": "Driftwood Brown",
+                "price": "$1,849.00"
+            }
+        ],
+        "3_-_sink_configuration": [
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/signaturehardware/signature-hardware-483409-3283655.jpg",
+                "model": "signature-hardware-483409",
+                "title": "Rectangular Undermount",
+                "price": "$1,809.00"
+            },
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/signaturehardware/signature-hardware-483406-3283655.jpg",
+                "model": "signature-hardware-483406",
+                "title": "Oval Undermount",
+                "price": "$1,849.00"
+            }
+        ]
+    },
+    "images": [],
+    "details": "{\n  'p1': 'This is a sample paragraph:',\n  'strong1': 'This is a sample paragraph:',\n  'ul1': \"Wood vanity cabinet with 2 doors and 5 drawersGranite, marble, or quartz vanity top with a single sinkMirror is not included and must be purchased separatelyFaucet is not included and must be purchased separatelyCovered under Signature Hardware's 25 year limited warranty\",\n  'li1': 'Wood vanity cabinet with 2 doors and 5 drawers',\n  'li2': 'Granite, marble, or quartz vanity top with a single sink',\n  'li3': 'Mirror is not included and must be purchased separately',\n  'li4': 'Faucet is not included and must be purchased separately',\n  'li5': \"Covered under Signature Hardware's 25 year limited warranty\",\n  'p2': 'Cabinet Features:',\n  'strong2': 'Cabinet Features:',\n  'ul2': 'Constructed from woodDouble door design provides easy access to storage space(5) full extension drawers with soft-close slides allows for organized storageSoft close drawer slides operate on smooth ball-bearings and prevent drawers from slamming shutVanity cabinet includes matching decorative hardware',\n  'li6': 'Constructed from wood',\n  'li7': 'Double door design provides easy access to storage space',\n  'li8': '(5) full extension drawers with soft-close slides allows for organized storage',\n  'li9': 'Soft close drawer slides operate on smooth ball-bearings and prevent drawers from slamming shut',\n  'li10': 'Vanity cabinet includes matching decorative hardware',\n  'p3': 'Vanity Top Features:',\n  'strong3': 'Vanity Top Features:',\n  'ul3': 'Absolute Black constructed from granite, Arctic White and Feathered White constructed from quartz, Carrara Marble constructed from marbleVanity top includes a single basin sink constructed of(3) pre-drilled faucet holes',\n  'li11': 'Absolute Black constructed from granite, Arctic White and Feathered White constructed from quartz, Carrara Marble constructed from marble',\n  'li12': 'Vanity top includes a single basin sink constructed of',\n  'li13': '(3) pre-drilled faucet holes',\n  'p4': 'Cabinet Specifications:',\n  'strong4': 'Cabinet Specifications:',\n  'ul4': 'Cabinet Width: 36\" (from left to right)Cabinet Height: 34-1/4\" (from top to bottom)Cabinet Depth: 21\" (from front to back)Number of Doors: 2Number of Drawers: 5',\n  'li14': 'Cabinet Width: 36\" (from left to right)',\n  'li15': 'Cabinet Height: 34-1/4\" (from top to bottom)',\n  'li16': 'Cabinet Depth: 21\" (from front to back)',\n  'li17': 'Number of Doors: 2',\n  'li18': 'Number of Drawers: 5',\n  'p5': 'Vanity Top Specifications:',\n  'strong5': 'Vanity Top Specifications:',\n  'ul5': 'Vanity Top Width: 37\" (left edge to right edge)Vanity Top Depth: 22\" (front edge to back edge)Backsplash Height: 4\"Number of Basins: 1Sink Basin Measurements: 16\" L x 12-1/2\" W x 6\" DNumber of Faucet Holes: 3Faucet Centers: 8\" (distance between the installation holes for the faucet handles)',\n  'li19': 'Vanity Top Width: 37\" (left edge to right edge)',\n  'li20': 'Vanity Top Depth: 22\" (front edge to back edge)',\n  'li21': 'Backsplash Height: 4\"',\n  'li22': 'Number of Basins: 1',\n  'li23': 'Sink Basin Measurements: 16\" L x 12-1/2\" W x 6\" D',\n  'li24': 'Number of Faucet Holes: 3',\n  'li25': 'Faucet Centers: 8\" (distance between the installation holes for the faucet handles)'\n}"
+}

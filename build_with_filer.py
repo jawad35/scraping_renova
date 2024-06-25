@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import os
-import re
 import threading
 import openai
 from typing import List
@@ -16,6 +15,15 @@ from utils.meta_description_generator import meta_description_generator
 from utils.meta_title_generator import meta_title_generator
 from utils.price_decreaser import price_decreaser
 from utils.rewriter import rewriter
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
+from webdriver_manager.chrome import ChromeDriverManager
+import re
 
 load_dotenv()
 
@@ -37,16 +45,23 @@ def generate_rewrite(description):
     except Exception as e:
         print(f"Error generating rewrite: {e}")
         return description 
+
+def download_image(url, folder_path, image_name):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
+        with open(os.path.join(folder_path, image_name), 'wb') as file:
+            file.write(response.content)
+        print(f"Downloaded {image_name} in {folder_path}")
+    except Exception as e:
+        print(f"Error downloading {image_name}: {e}")
 def get_model_from_image(url):
-    last_dash_index = url.rfind('-')
-    last_slash_index = url.rfind('/')
-    # Extract the substring between last slash and last dash
-    if last_slash_index != -1 and last_dash_index != -1:
-        extracted_string = url[last_slash_index + 1:last_dash_index]
-        return extracted_string
-        print("Extracted string:", extracted_string)
+    parts = url.split('-')
+    if len(parts) >= 3:
+        extracted_text = parts[-2]
+        return extracted_text
     else:
-        print("Last dash or last slash not found in the URL.")
+        print("URL does not contain enough parts")
 
 def process_url(url, base_image_folder, products_json):
     try:
@@ -120,17 +135,19 @@ def process_url(url, base_image_folder, products_json):
         meta_description = meta_description_generator(all_tables_data)
         meta_title = meta_title_generator(product_title)
         newprice = price_decreaser(price)
+
         # Create directories for the product
         root_folder = 'products'
         main_folder = os.path.join(root_folder, base_image_folder)
         product_folder = os.path.join(main_folder, model)
         os.makedirs(product_folder, exist_ok=True)
+
         # Create subfolders for slide and variant images
         slide_folder = os.path.join(product_folder, 'slides')
         variant_folder = os.path.join(product_folder, 'variants')
         os.makedirs(slide_folder, exist_ok=True)
         os.makedirs(variant_folder, exist_ok=True)
-        model_color = []
+
         def download_images_from_divs(div_class, type):
             image_divs = soup.find_all('div', class_=div_class)
             folder = slide_folder if type == 'slide' else variant_folder
@@ -145,14 +162,85 @@ def process_url(url, base_image_folder, products_json):
                             style = color_div.get('style')
                             color = style.split('background-color:')[1].split(';')[0].strip()
                             img_name = f'{type}_image_{index+1}.jpg'
-                            if get_model_from_image(img_url) == f'{brand.lower()}-{model.lower()}':
-                                model_color.append(color)
-                            variant_images_data.append({'color_name': color, 'model':get_model_from_image(img_url)})
+                            variant_images_data.append({'img': f'products/{base_image_folder}/{model}/variants/{img_name}', 'color_name': color, model:get_model_from_image(img_url)})
+                    download_image(img_url, folder, img_name)
                     if type == 'slide':
                         slide_images_data.append(f'products/{base_image_folder}/{model}/slides/{img_name}')
+                # Set up the Chrome driver
+        options = webdriver.ChromeOptions()
+        options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+
+        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+
+        try:
+            driver.get(url)
+            # Wait for the page to load
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "ul.ma0.pa0")))
+
+            # Find the ul element with classes 'ma0' and 'pa0'
+            ul_element = driver.find_element(By.CSS_SELECTOR, "ul.ma0.pa0")
+
+            if not ul_element:
+                print("No ul element with classes 'ma0' and 'pa0' found")
+            else:
+                extracted_data = {}
+                
+                # Find all li elements inside the ul
+                li_elements = ul_element.find_elements(By.CSS_SELECTOR, 'li')
+
+                for li_element in li_elements:
+                    # Find the h3 element with class 'tc1-title' inside the li
+                    try:
+                        h3_element = li_element.find_element(By.CSS_SELECTOR, 'h3.tc1-title')
+                        section_title = h3_element.text
+                        section_key = section_title.lower().replace(' ', '_')
+                        extracted_data[section_key] = []
+
+                        # Find all button elements with class 'qdzeh' inside the li
+                        button_elements = li_element.find_elements(By.CSS_SELECTOR, 'button .qdzeh')
+                        
+                        for button_element in button_elements:
+                            data_obj = {}
+
+                            # Find the img inside the button
+                            try:
+                                img_element = button_element.find_element(By.CSS_SELECTOR, 'img')
+                                img_src = img_element.get_attribute('src')
+                                match = re.search(r'/([^/]+)-[^-]+\.(?:jpg|jpeg|png|gif)$', img_src)
+                                if match:
+                                    extracted_text = match.group(1)
+                                    data_obj['img'] = img_src
+                                    data_obj['model'] = extracted_text
+                                    
+                                    # Find the tc2-title inside the button
+                                    try:
+                                        title_element = button_element.find_element(By.CSS_SELECTOR, '.tc2-title')
+                                        data_obj['title'] = title_element.text
+                                    except NoSuchElementException:
+                                        data_obj['title'] = None
+
+                                    # Find the price inside the button
+                                    try:
+                                        price_element = button_element.find_element(By.CSS_SELECTOR, '.theme-grey-medium')
+                                        data_obj['price'] = price_element.text
+                                    except NoSuchElementException:
+                                        data_obj['price'] = None
+
+                                    extracted_data[section_key].append(data_obj)
+                            except NoSuchElementException:
+                                continue  # Skip this button element if no img tag is found
+                    except NoSuchElementException:
+                        continue  # Skip this li element if no h3.tc1-title is found
+
+                print("Extracted data:", extracted_data)
+
+        except Exception as e:
+            print("An error occurred:", e)
+        finally:
+            driver.quit()
 
         # Download images
-        download_images_from_divs('br2', 'variant')
+        # download_images_from_divs('br2', 'variant')
         # download_images_from_divs('transform-component-module_content__FBWxo', 'slide')
 
         # Generate rewrite for details content
@@ -170,22 +258,27 @@ def process_url(url, base_image_folder, products_json):
             'url':pro_url,
             'brand':brand,
             'uid':uid,
-            'filtering':f'{brand.lower()}-{model.lower()}',
             'price': newprice,
-            'model': model.lower(),
-            'color':model_color[0],
+            'model': model,
             'category':base_image_folder.lower(),
             'specifications': all_tables_data,
-            'variants': variant_images_data,
+            'variants': extracted_data,
             'images': slide_images_data,
             "details": rewriter(details_content)
         }
+
+        print(product_data)
+        # Add the product data to the products_json list
         products_json.append(product_data)
+
+        # Save the product data to a JSON file with the model name
         product_json_path = os.path.join(product_folder, f"{model}.json")
         with open(product_json_path, 'w', encoding='utf-8') as json_file:
             json.dump(product_data, json_file, ensure_ascii=False, indent=4)
+    
     except Exception as e:
         print(f"Error processing URL {url}: {e}")
+
 def get_build_products_data(urls, base_image_folder):
     products_json = []
     threads = []
@@ -198,8 +291,10 @@ def get_build_products_data(urls, base_image_folder):
                 time.sleep(1)  # Sleep for 1 second before starting the next thread
         except Exception as e:
             print(f"Error creating thread for URL {url}: {e}")
+
     for thread in threads:
         thread.join()
+    
     return products_json
 # class URLRequest(BaseModel):
 #     urls: List[str]

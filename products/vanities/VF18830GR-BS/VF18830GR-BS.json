@@ -1,0 +1,93 @@
+{
+    "meta_description": "\"Upgrade your bathroom with this 30in. vanity set featuring a 0.71in. thick vanity top, 3 faucet holes, and soft-close hinges. Includes sink and cabinet hardware. Contemporary design with finished back and engineered stone top. No assembly required. 1 year warranty. Commercial use approved. Made in Malaysia.\"",
+    "meta_title": "\"Irene 30\" Free Standing Vanity Set | Cabinet, Marble Top & Backsplash\"",
+    "url": "elegant-lighting-VF18830GR-BS-4487880-grey",
+    "brand": "Elegant Lighting",
+    "uid": "4487880",
+    "price": "841.98",
+    "model": "VF18830GR-BS",
+    "category": "vanities",
+    "specifications": {
+        "t1": {
+            "backsplash-height": "3.94in.",
+            "depth": "22in.",
+            "faucet-hole-size": "1.38in.",
+            "height": "34in.",
+            "nominal-width": "30in.",
+            "product-weight": "101.4lbs.",
+            "sink-height": "8.26in.",
+            "sink-length": "15.75in.",
+            "sink-width": "12.6in.",
+            "vanity-top-depth": "22in.",
+            "vanity-top-thickness": "0.71in.",
+            "vanity-top-width": "30in.",
+            "width": "30in."
+        },
+        "t2": {
+            "backsplash-included": "Yes",
+            "bridge-drawer-included": "No",
+            "cabinet-hardware-included": "Yes",
+            "drain-assembly-included": "No",
+            "faucet-included": "No",
+            "light-included": "No",
+            "medicine-cabinet-included": "No",
+            "mirror-included": "No",
+            "side-cabinet-included": "No",
+            "sidesplash-included": "No",
+            "sink-included": "Yes",
+            "usb-port": "No",
+            "vanity-legs-included": "Yes",
+            "vanity-top-included": "Yes"
+        },
+        "t3": {
+            "assembly-required": "No",
+            "faucet-holes": "3",
+            "faucet-mounting-type": "Widespread",
+            "finished-back": "Yes",
+            "installation-type": "Free Standing",
+            "material": "Wood",
+            "number-of-basins": "1",
+            "number-of-doors": "2",
+            "number-of-drawers": "1",
+            "number-of-shelves": "0",
+            "overflow": "Yes",
+            "self-closing-slides": "No",
+            "sink-material": "Porcelain",
+            "sink-shape": "Oval",
+            "soft-close-hinges": "Yes",
+            "theme": "Contemporary",
+            "vanity-top-material": "Engineered Stone",
+            "wood-species": "Rubberwood"
+        },
+        "t4": {
+            "electrical-outlet": "No"
+        },
+        "t5": {
+            "ada": "No",
+            "approved-for-commercial-use": "Yes",
+            "collection": "Irene",
+            "country-of-origin": "Malaysia",
+            "low-lead-compliant": "No",
+            "manufacturer-warranty": "1 Year Limited"
+        }
+    },
+    "variants": {
+        "backsplash_included": [
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/elegantlighting/elegant-lighting-vf18830gr-bs-6161157.jpg",
+                "model": "elegant-lighting-vf18830gr-bs",
+                "title": "Yes",
+                "price": "$842.00"
+            },
+            {
+                "img": "https://s3.img-b.com/image/private/t_base,c_lpad,f_auto,dpr_auto,w_55,h_55/product/elegantlighting/elegant-lighting-vf18830gr-6161157.jpg",
+                "model": "elegant-lighting-vf18830gr",
+                "title": "No",
+                "price": "$796.00"
+            }
+        ],
+        "size_options": []
+    },
+    "images": [],
+    "details": "{\n  'p1': 'This is a sample paragraph:',\n  'strong1': 'Included Components:',\n  'ul1': \"Covered under Elegant Lighting's 1 year limited warrantyWood vanity cabinet with 2 doors and 1 drawerEngineered marble vanity top with a single porcelain sink and backsplashFaucet is not included and must be purchased separately\",\n  'li1': \"Covered under Elegant Lighting's 1 year limited warranty\",\n  'li2': 'Wood vanity cabinet with 2 doors and 1 drawer',\n  'li3': 'Engineered marble vanity top with a single porcelain sink and backsplash',\n  'li4': 'Faucet is not included and must be purchased separately',\n  'p2': 'This is a sample paragraph:',\n  'strong2': 'Cabinet Features:',\n  'ul2': 'Constructed from wood providing a lifetime of durabilityFree standing installation - vanity is seated on the floor with wall anchors, providing a functional designDouble door design provides easy access to storage space1 full extension drawer allows for organized storageVanity cabinet includes matching decorative hardwareVanity will ship fully assembled',\n  'li5': 'Constructed from wood providing a lifetime of durability',\n  'li6': 'Free standing installation - vanity is seated on the floor with wall anchors, providing a functional design',\n  'li7': 'Double door design provides easy access to storage space',\n  'li8': '1 full extension drawer allows for organized storage',\n  'li9': 'Vanity cabinet includes matching decorative hardware',\n  'li10': 'Vanity will ship fully assembled',\n  'p3': 'This is a sample paragraph:',\n  'strong3': 'Vanity Top Features:',\n  'ul3': 'Engineered marble vanity top includes a sink constructed of porcelain3 pre-drilled faucet holesEach sink features its own oval single basin workspaceEquipped with an overflow drain to help prevent spillageVanity top includes matching backsplash',\n  'li11': 'Engineered marble vanity top includes a sink constructed of porcelain',\n  'li12': '3 pre-drilled faucet holes',\n  'li13': 'Each sink features its own oval single basin workspace',\n  'li14': 'Equipped with an overflow drain to help prevent spillage',\n  'li15': 'Vanity top includes matching backsplash',\n  'p4': 'This is a sample paragraph:',\n  'strong4': 'Cabinet Specifications:',\n  'ul4': 'Number of Doors: 2Number of Drawers: 1',\n  'li16': 'Number of Doors: 2',\n  'li17': 'Number of Drawers: 1',\n  'p5': 'This is a sample paragraph:',\n  'strong5': 'Vanity Top Specifications:',\n  'ul5': 'Vanity Top Depth: 22\" (front edge to back edge)Backsplash Height: 3-15/16\"Number of Basins: 1Sink Dimensions: 8-1/4\"H x 12-5/8\"W x 15-3/4\"LNumber of Faucet Holes: 3',\n  'li18': 'Vanity Top Depth: 22\" (front edge to back edge)',\n  'li19': 'Backsplash Height: 3-15/16\"',\n  'li20': 'Number of Basins: 1',\n  'li21': 'Sink Dimensions: 8-1/4\"H x 12-5/8\"W x 15-3/4\"L',\n  'li22': 'Number of Faucet Holes: 3'\n}"
+}

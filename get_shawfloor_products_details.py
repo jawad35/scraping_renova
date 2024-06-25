@@ -131,6 +131,7 @@ def get_all_product_details(url, category):
         # Initialize a list to store the image data
         image_data = []
         slide_data = []
+        filtering = []
 
         processed_images = 0  # Initialize counter for processed images
 
@@ -141,14 +142,15 @@ def get_all_product_details(url, category):
                 background_image_url = background_image_style.split('url(')[-1].split(');')[0].strip('\'"')
                 image_path = download_image(background_image_url, variant_directory)
                 print(image_path)
-
-                
                 if image_path:
                     processed_images += 1  # Increment counter for successfully processed image
+                    
+                    if color_name.replace(" ", '-').lower() == '':
+                        filtering.append()
+                    # print(color_name.replace(" ", '-').lower())
                     image_data.append({"color_name": color_name.replace(" ", '-').lower(), "image_url": image_path})
             except Exception as e:
                 print(f"Error processing swatch item: {e}")
-        print(f"Total images processed: {processed_images}")
         if thumb_slider:
             # Extract big images
             big_images = driver.find_elements(By.CSS_SELECTOR, '.thumb-slider .aSlide:not([tabindex="-1"])')
@@ -178,6 +180,7 @@ def get_all_product_details(url, category):
             'meta_title':meta_title_generator(title),
             'url':pro_url,
             'uid': product_id.replace(" ", "-").lower(),
+            'filtering': f'{product_name.replace(" ", "-").lower()}-{table_data.get("color").split(' ')[0].lower()}',
             'price': price,
             'brand': 'shawfloors',
             'model':product_id.replace(" ", "-").lower(),
