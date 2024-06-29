@@ -69,14 +69,13 @@ def extract_model(soup):
 content_dict = {}
 
 # Function to store the content with unique keys
-def add_to_dict(tag, index, text):
-    key = f"{tag}{index}"
+def add_to_dict(tag_name, index, text, content_dict):
+    key = f"{tag_name}{index}"
     content_dict[key] = text
 
 # Initialize a counter dictionary
 counters = {}
 
-# Function to recursively scrape content
 def scrape_content(element, counters, content_dict):
     for child in element.children:
         if child.name is not None:
@@ -88,8 +87,16 @@ def scrape_content(element, counters, content_dict):
             if text:
                 # Check if the content is already in the dictionary
                 if text not in content_dict.values():
-                    add_to_dict(tag_name, index, text)
-                    counters[tag_name] += 1
+                    if tag_name == 'ul':
+                        ul_key = f"ul{index}"
+                        content_dict[ul_key] = []
+                        for li in child.find_all('li'):
+                            content_dict[ul_key].append(li.get_text(strip=True))
+                        counters['ul'] += 1
+                    else:
+                        if tag_name != 'li':
+                            add_to_dict(tag_name, index, text, content_dict)
+                            counters[tag_name] += 1
             # Recursive call to scrape nested content
             scrape_content(child, counters, content_dict)
 
@@ -152,7 +159,7 @@ async def process_url(session, url):
         "model": model,
         "category":"laminates",
         "specifications": specifications,
-        "details": rewriter(details),
+        "details": details,
         "images": images,
     }
     print(specifications)

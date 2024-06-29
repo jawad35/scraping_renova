@@ -1,0 +1,99 @@
+{
+    "meta_description": "\"Upgrade your kitchen with the Totten sink. 33in. length, 22in. width, and 9.5in. depth. Granite composite material, single basin, and modern design. Includes installation hardware and UPC certification. 5 year commercial warranty.\"",
+    "meta_title": "\"Totten 33\" Granite Composite Kitchen Sink | Drop In/Undermount | Single Basin\"",
+    "url": "signature-hardware-447666-4027533",
+    "brand": "Signature Hardware",
+    "uid": "4027533",
+    "filtering": "signature-hardware-447666",
+    "price": "378.96",
+    "model": "447666",
+    "color": "#ffffff",
+    "category": "sinks",
+    "specifications": {
+        "t1": {
+            "basin-depth": "9.5in.",
+            "basin-length": "30.375in.",
+            "basin-width": "16.5in.",
+            "height": "9.5in.",
+            "length": "33in.",
+            "minimum-cabinet-size": "36in.",
+            "nominal-length": "33in.",
+            "nominal-width": "22in.",
+            "width": "22in."
+        },
+        "t2": {
+            "basin-rack-included": "No",
+            "basket-strainer-included": "No",
+            "colander-included": "No",
+            "cutting-board-included": "No",
+            "drainboard": "No",
+            "installation-hardware-included": "Yes",
+            "soap-dispenser-included": "No"
+        },
+        "t3": {
+            "apron-front": "No",
+            "basin-split": "Single Basin",
+            "corner-sink": "No",
+            "drain-placement": "Right",
+            "farmhouse": "No",
+            "faucet-holes": "0",
+            "installation-type": "Drop In, Undermount",
+            "material": "Granite Composite",
+            "number-of-basins": "1",
+            "sink-shape": "Rectangular",
+            "theme": "Modern"
+        },
+        "t4": {
+            "approved-for-commercial-use": "Yes",
+            "certifications": "UPC",
+            "collection": "Totten",
+            "commercial-warranty": "5 Year Limited",
+            "manufacturer-warranty": "25 Year Limited"
+        }
+    },
+    "variants": [
+        {
+            "color_name": "#000000",
+            "model": "signature-hardware-447659"
+        },
+        {
+            "color_name": "#ffffff",
+            "model": "signature-hardware-447666"
+        }
+    ],
+    "images": [
+        "products/sinks/447666/slides/slide_image_1.jpg",
+        "products/sinks/447666/slides/slide_image_2.jpg",
+        "products/sinks/447666/slides/slide_image_3.jpg",
+        "products/sinks/447666/slides/slide_image_4.jpg",
+        "products/sinks/447666/slides/slide_image_5.jpg",
+        "products/sinks/447666/slides/slide_image_6.jpg",
+        "products/sinks/447666/slides/slide_image_7.jpg",
+        "products/sinks/447666/slides/slide_image_8.jpg",
+        "products/sinks/447666/slides/slide_image_9.jpg",
+        "products/sinks/447666/slides/slide_image_10.jpg",
+        "products/sinks/447666/slides/slide_image_11.jpg"
+    ],
+    "main_image": "products/sinks/447666/slides/main.jpg",
+    "details": {
+        "p1": "Both durable and stylish, the 33\" Totten Granite Composite Sink is a fantastic addition to your kitchen. Featuring a stylish black finish, this basin resists heat damage, scratching, denting, and staining. An offset drain location provides more room for food preparation or dish cleaning without blocking the drain, as well as creating room for storage in the cabinet below. A dual-mount design, this basin can be installed as a drop-in or undermount sink.",
+        "p2": "Signature Hardware 948461 Features:",
+        "strong1": "Signature Hardware 948461 Features:",
+        "ul1": [
+            "Covered under Signature Hardware's 25 year limited warranty",
+            "Constructed of granite composite",
+            "Dual installation – sink can be installed under the counter top or be dropped into a cutout in the countertop",
+            "It is recommended to have the sink at the job site before cutting cabinet or counter top",
+            "Resistant to heat, stains, and scratches"
+        ],
+        "p3": "Signature Hardware 948461 Specifications:",
+        "strong2": "Signature Hardware 948461 Specifications:",
+        "ul2": [
+            "Sink Length: 33\" (left to right)",
+            "Sink Width: 22\" (front to back)",
+            "Sink Height: 9-1/2\" (top to bottom)",
+            "Basin Dimensions: 30-3/8\" L x 16-1/2\" W x 9-1/2\" D",
+            "Minimum Cabinet Size: 36\""
+        ]
+    }
+}

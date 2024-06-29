@@ -13,10 +13,13 @@ from selenium.webdriver.chrome.options import Options
 from openai import OpenAI
 import threading
 import queue
+import urllib.parse
 from utils.meta_description_generator import meta_description_generator
 from utils.meta_title_generator import meta_title_generator
 from utils.price_decreaser import price_decreaser
 from utils.rewriter import rewriter
+from bs4 import BeautifulSoup
+import re
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -24,6 +27,7 @@ load_dotenv()
 base_url = "http://localhost:8000/"
 
 app = FastAPI()
+
 
 def rewrite_description(description):
     try:
@@ -48,7 +52,7 @@ def download_image(image_url, save_directory):
         headers = {'User-Agent': 'Mozilla/5.0'}
         response = requests.get(image_url, headers=headers, stream=True)
         if response.status_code == 200:
-            image_path = os.path.join(save_directory, image_name)
+            image_path = os.path.join(save_directory, 'main.jpg')
             with open(image_path, 'wb') as file:
                 for chunk in response.iter_content(chunk_size=1024):
                     file.write(chunk)
@@ -70,14 +74,19 @@ def extract_table_data(driver, accordion_header_ids):
                 time.sleep(1)
             except:
                 pass
-            table = driver.find_element(By.CSS_SELECTOR, '#full-product-details-specs .specs .table.table-striped')
-            rows = table.find_elements(By.TAG_NAME, 'tr')
-            for row in rows:
-                cells = row.find_elements(By.TAG_NAME, 'td')
-                if len(cells) == 2:
-                    key = cells[0].text.strip().replace(" ","-").lower()
-                    value = cells[1].text.strip()
-                    data[key] = value
+            
+        # Wait for the table to be visible
+        table = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '#full-product-details-specs .specs .table.table-striped'))
+        )
+        
+        rows = table.find_elements(By.TAG_NAME, 'tr')
+        for row in rows:
+            cells = row.find_elements(By.TAG_NAME, 'td')
+            if len(cells) == 2:
+                key = cells[0].text.strip().replace(" ","-").lower()
+                value = cells[1].text.strip()
+                data[key] = value
         return data
     except Exception as e:
         print(f"Error extracting table data: {e}")
@@ -98,7 +107,13 @@ def get_text_after_segment(url, segment):
     
 def get_all_product_details(url, category):
     try:
-        last_segment = get_text_after_segment(url, 'details').replace(" ", '-').lower()
+        last_segment = get_text_after_segment(url, 'details')
+        if last_segment:
+            last_segment = last_segment.replace(" ", '-').lower()
+        else:
+            print("Error: Segment 'details' not found in URL.")
+            return None
+        
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         driver = webdriver.Chrome(options=chrome_options)
@@ -117,38 +132,34 @@ def get_all_product_details(url, category):
         price = product_details_container.find_element(By.CLASS_NAME, 'price-amount').text.strip()
         price = price_decreaser(f'${price}')
         thumb_slider = driver.find_element(By.CSS_SELECTOR, 'div.thumb-slider')
-
         # Directory setup
         main_directory = "products"
         category_directory = os.path.join(main_directory, category)
         product_directory = os.path.join(category_directory, last_segment.replace("/", "-").replace(" ", "").lower())
-        variant_directory = os.path.join(product_directory, "variants")
         slide_directory = os.path.join(product_directory, "slides")
-
-        os.makedirs(variant_directory, exist_ok=True)
         os.makedirs(slide_directory, exist_ok=True)
-
         # Initialize a list to store the image data
         image_data = []
         slide_data = []
-        filtering = []
-
-        processed_images = 0  # Initialize counter for processed images
-
+        main_image = ''
+        parsed_url = urlparse(url)
+        path_components = parsed_url.path.split('/')
+        product_id = path_components[-2].replace('-', ' ')  # Replace hyphens with spaces
+        product_name = path_components[-1].replace('-', ' ')  # Replace hyphens with spaces
+        title = f'{product_name} {product_id}' 
+        # image_url = fetch_image_url(driver)
+        # print(image_url, "gh8")
         for item in swatch_items:
             try:
-                color_name = item.find_element(By.CLASS_NAME, 'item-color-name').get_attribute('innerHTML').replace('<br>', ' ').strip()
+                color_name = item.find_element(By.CLASS_NAME, 'item-color-name').get_attribute('innerHTML').replace('<br>', ' ')
+                formatted_color_name = '-'.join(color_name.lower().split())
                 background_image_style = item.find_element(By.CLASS_NAME, 'swatchThumb').get_attribute('style')
                 background_image_url = background_image_style.split('url(')[-1].split(');')[0].strip('\'"')
-                image_path = download_image(background_image_url, variant_directory)
-                print(image_path)
-                if image_path:
-                    processed_images += 1  # Increment counter for successfully processed image
-                    
-                    if color_name.replace(" ", '-').lower() == '':
-                        filtering.append()
-                    # print(color_name.replace(" ", '-').lower())
-                    image_data.append({"color_name": color_name.replace(" ", '-').lower(), "image_url": image_path})
+                if formatted_color_name == f'{product_name.replace(" ", "-").lower()}-{table_data.get("color", "").split(" ")[0].lower()}':
+                    image_path = download_image(background_image_url, slide_directory)
+                    main_image = image_path
+                image_data.append({"model": formatted_color_name})
+
             except Exception as e:
                 print(f"Error processing swatch item: {e}")
         if thumb_slider:
@@ -169,26 +180,23 @@ def get_all_product_details(url, category):
             print("Image data saved to slider-images.json")
         else:
             print("Thumbnail slider not found.")
-        parsed_url = urlparse(url)
-        path_components = parsed_url.path.split('/')
-        product_id = path_components[-2].replace('-', ' ')  # Replace hyphens with spaces
-        product_name = path_components[-1].replace('-', ' ')  # Replace hyphens with spaces
         title = f'{product_name} {product_id}' 
-        pro_url = f'{product_id.replace(" ", "-").lower()}-{product_name.replace(" ", "-").lower()}-{table_data.get('width').replace(" ", '')}-{table_data.get('collection').replace(" ", "-").lower()}' 
+        pro_url = f'{product_id.replace(" ", "-").lower()}-{product_name.replace(" ", "-").lower()}-{table_data.get("width", "").replace(" ", "")}-{table_data.get("collection", "").replace(" ", "-").lower()}' 
         product_details = {
-            'meta_description':meta_description_generator({"t1": table_data}),
-            'meta_title':meta_title_generator(title),
-            'url':pro_url,
+            'meta_description': meta_description_generator({"t1": table_data}),
+            'meta_title': meta_title_generator(title),
+            'url': pro_url,
             'uid': product_id.replace(" ", "-").lower(),
-            'filtering': f'{product_name.replace(" ", "-").lower()}-{table_data.get("color").split(' ')[0].lower()}',
+            'filtering': f'{product_name.replace(" ", "-").lower()}-{table_data.get("color", "").split(" ")[0].lower()}',
             'price': price,
             'brand': 'shawfloors',
-            'model':product_id.replace(" ", "-").lower(),
+            'model': product_id.replace(" ", "-").lower(),
             'category': category.lower(),
             'specifications': {"t1": table_data},
             'variants': image_data,
             'images': slide_data,
-            "details": {"p":rewriter(details_content)}
+            'main_image': main_image,
+            "details": {"p": rewriter(details_content)}
         }
         with open("product-details.json", "a") as json_file:
             json.dump(product_details, json_file, indent=4)
@@ -228,7 +236,7 @@ def get_shawfloor_products_data(urls, category):
         results.append(results_queue.get())
     return results
 
-# # Example usage:
+# Example usage:
 # urls = [
 #     "https://shawfloors.com/flooring/carpet/details/vintage-revival-cc77b/turmeric",
 #     # Add more URLs as needed

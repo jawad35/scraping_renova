@@ -2,12 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import os
-import re
 import threading
-import openai
 from typing import List
 from fastapi import FastAPI
-import random
 from dotenv import load_dotenv
 from urllib.parse import urlparse, parse_qs
 from utils.get_page_details_part import get_details_part
@@ -16,7 +13,7 @@ from utils.meta_description_generator import meta_description_generator
 from utils.meta_title_generator import meta_title_generator
 from utils.price_decreaser import price_decreaser
 from utils.rewriter import rewriter
-
+import urllib.parse
 load_dotenv()
 
 app = FastAPI()
@@ -24,19 +21,59 @@ app = FastAPI()
 variant_images_data = []
 slide_images_data = []
 
-def generate_rewrite(description):
+def download_main_image(image_url, save_directory):
     try:
-        client = openai.Client(api_key=os.getenv("OPENAI_SECRET"))
-        completion = client.completions.create(
-            model="gpt-3.5-turbo-instruct",
-            prompt=f"Please rewrite the content of every html tag '{description}'",
-            max_tokens=2000,
-            temperature=0
-        )
-        return completion.choices[0].text.strip()
+        parsed_url = urllib.parse.urlparse(image_url)
+        image_name = os.path.basename(parsed_url.path)
+        if not os.path.exists(save_directory):
+            os.makedirs(save_directory)
+        headers = {'User-Agent': 'Mozilla/5.0'}
+        response = requests.get(image_url, headers=headers, stream=True)
+        if response.status_code == 200:
+            image_path = os.path.join(save_directory, 'main.jpg')
+            with open(image_path, 'wb') as file:
+                for chunk in response.iter_content(chunk_size=1024):
+                    file.write(chunk)
+            return image_path
+        else:
+            print(f"Failed to retrieve the image. Status code: {response.status_code}")
+            return None
     except Exception as e:
-        print(f"Error generating rewrite: {e}")
-        return description 
+        print(f"Error downloading image: {e}")
+        return None
+
+def fetch_main_image(soup, category_name, model):
+    try:
+        # Find the image tag by class name
+        img_tag = soup.find('div', class_='transform-component-module_content__FBWxo').find('img')
+        if img_tag:
+            # Get the image source URL
+            image_url = img_tag.get('src')
+            # Extract filename from URL
+            parsed_url = urllib.parse.urlparse(image_url)
+            filename = os.path.basename(parsed_url.path)
+            # Construct the full path
+            folder_path = os.path.join('products', category_name, model, 'slides')
+            image_path = os.path.join(folder_path, 'main.jpg')
+            # Download the image
+            if not os.path.exists(image_path):
+                download_path = download_main_image(image_url, folder_path)
+                if download_path:
+                    print(f"Image downloaded successfully: {download_path}")
+                else:
+                    print("Image download failed.")
+                    return None
+            
+            # Return the full path
+            return image_path
+        else:
+            print("Image tag not found.")
+            return None
+    except Exception as e:
+        print(f"Error fetching main image: {e}")
+        return None
+
+
 def get_model_from_image(url):
     last_dash_index = url.rfind('-')
     last_slash_index = url.rfind('/')
@@ -48,12 +85,23 @@ def get_model_from_image(url):
     else:
         print("Last dash or last slash not found in the URL.")
 
+def download_image(url, folder_path, image_name):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
+        with open(os.path.join(folder_path, image_name), 'wb') as file:
+            file.write(response.content)
+        print(f"Downloaded {image_name} in {folder_path}")
+    except Exception as e:
+        print(f"Error downloading {image_name}: {e}")
+
 def process_url(url, base_image_folder, products_json):
     try:
         # Scrape the data using BeautifulSoup
         response = requests.get(url)
         response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
         soup = BeautifulSoup(response.content, 'html.parser')
+        
         # Find the span tags with the specific attributes and class names
         price_span = soup.find('span', {'data-automation': 'price'})
         model_span = soup.find('span', {'data-automation': 'product-model-number', 'class': 'b'})
@@ -127,13 +175,15 @@ def process_url(url, base_image_folder, products_json):
         os.makedirs(product_folder, exist_ok=True)
         # Create subfolders for slide and variant images
         slide_folder = os.path.join(product_folder, 'slides')
-        variant_folder = os.path.join(product_folder, 'variants')
         os.makedirs(slide_folder, exist_ok=True)
-        os.makedirs(variant_folder, exist_ok=True)
         model_color = []
+        main_image = fetch_main_image(soup, base_image_folder, model)
+        if main_image:
+            print(main_image)
         def download_images_from_divs(div_class, type):
             image_divs = soup.find_all('div', class_=div_class)
-            folder = slide_folder if type == 'slide' else variant_folder
+            folder = slide_folder
+     
             for index, div in enumerate(image_divs):
                 img_tag = div.find('img')
                 if img_tag and 'src' in img_tag.attrs:
@@ -145,40 +195,40 @@ def process_url(url, base_image_folder, products_json):
                             style = color_div.get('style')
                             color = style.split('background-color:')[1].split(';')[0].strip()
                             img_name = f'{type}_image_{index+1}.jpg'
-                            if get_model_from_image(img_url) == f'{brand.lower()}-{model.lower()}':
+                            if get_model_from_image(img_url) == f'{brand.lower().replace(" ", "-")}-{model.lower()}':
                                 model_color.append(color)
                             variant_images_data.append({'color_name': color, 'model':get_model_from_image(img_url)})
+                    
                     if type == 'slide':
+                        download_image(img_url, folder, img_name)
                         slide_images_data.append(f'products/{base_image_folder}/{model}/slides/{img_name}')
 
         # Download images
         download_images_from_divs('br2', 'variant')
-        # download_images_from_divs('transform-component-module_content__FBWxo', 'slide')
+        download_images_from_divs('transform-component-module_content__FBWxo', 'slide')
 
         # Generate rewrite for details content
         # details_content = generate_rewrite(details_content)
 
         # Save the extracted table data and other details to a JSON file
         # Find the <span> with data-automation="finish-name"
-        span = soup.find('span', {'data-automation': 'finish-name'})
-        if span:
-            finish_name = span.text.strip().lower()
-        pro_url = f'{brand.replace(" ", "-").lower()}-{model}-{uid}-{finish_name}'
+        pro_url = f'{brand.replace(" ", "-").lower()}-{model}-{uid}'
         product_data = {
             'meta_description':meta_description,
             'meta_title':meta_title,
             'url':pro_url,
             'brand':brand,
             'uid':uid,
-            'filtering':f'{brand.lower()}-{model.lower()}',
+            'filtering':f'{brand.lower().replace(" ", "-")}-{model.lower()}',
             'price': newprice,
             'model': model.lower(),
-            'color':model_color[0],
+            'color':model_color[0] if model_color else None,
             'category':base_image_folder.lower(),
             'specifications': all_tables_data,
             'variants': variant_images_data,
             'images': slide_images_data,
-            "details": rewriter(details_content)
+            'main_image':main_image,
+            "details": details_content
         }
         products_json.append(product_data)
         product_json_path = os.path.join(product_folder, f"{model}.json")

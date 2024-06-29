@@ -103,7 +103,7 @@ def scrape_product_data_and_download_image(url):
                 "t2": table_data2
             },
             'images': [image_path],  # Store image path in a list
-            'details': rewriter(product_description)
+            'details': {"p":rewriter(product_description)}
         }
         return product_data
     except Exception as e:

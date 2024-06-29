@@ -8,7 +8,7 @@ def rewriter(description):
         client = openai.Client(api_key=os.getenv("OPENAI_SECRET"))
         completion = client.completions.create(
             model="gpt-3.5-turbo-instruct",
-            prompt=f"Please rewrite the following HTML content, changing the text within the HTML tags but keeping the same meaning and don't skip anything return data in object form not string like p1:this is sample paragaraph:'{description}'",
+            prompt=f"Rewrite the content of each HTML tag while ensuring the meaning remains consistent. Focus on varying sentence structure, synonyms, and phrasing to create distinct but semantically equivalent content'{description}'",
             max_tokens=2000,
             temperature=0
         )
